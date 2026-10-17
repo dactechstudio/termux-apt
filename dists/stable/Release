@@ -1,0 +1,10 @@
+Origin: DAC Tech Studio
+Label: Termux custom ARM64 packages
+Suite: stable
+Codename: stable
+Architectures: aarch64
+Components: main
+Date: Sat, 17 Oct 2026 15:01:18 +0000
+SHA256:
+ d82e64973ab90ad79c5f837ed9d89d318117267b12a8a258a273d3dd8aa768ad 100765 main/binary-aarch64/Packages
+ 8d49522ee952cbeea153cbb4f13f20d032a5b3aabbd955b036e02a4180cb8997 30337 main/binary-aarch64/Packages.gz
