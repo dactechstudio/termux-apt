@@ -631,6 +631,52 @@ SHA256: a4ed07d5f8ae00d710020acc0d7361d95ecc998487085657bbc90f4af50798f8
 Homepage: https://www.gnu.org/software/inetutils/
 Description: Collection of common network programs
 
+Package: krb5
+Version: 1.22.2
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 3820
+Depends: libresolv-wrapper, readline, openssl, libdb
+Breaks: krb5-dev
+Replaces: krb5-dev
+Filename: pool/main/1c5c4bd1ec12d709a22233dcd436d8f7181ff6c9df9e51ec79d1b604caf17ef2.deb
+Size: 896904
+MD5sum: 9ec71399bf36e23dd5c90c391b457632
+SHA1: ca28b7ab3fe19b344202d482fd725286cff48e1c
+SHA256: 1c5c4bd1ec12d709a22233dcd436d8f7181ff6c9df9e51ec79d1b604caf17ef2
+Homepage: https://web.mit.edu/kerberos
+Description: The Kerberos network authentication system
+
+Package: ldns
+Version: 1.8.4-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 2852
+Depends: openssl, resolv-conf
+Breaks: ldns-dev
+Replaces: ldns-dev
+Filename: pool/main/77d98478709a4a989d8523c13495616768a2f26b6e1f8963f63f7fcff38bb608.deb
+Size: 301972
+MD5sum: 6018925bae4d222b2a8f95933fda52d2
+SHA1: 461500b6401714141c2642ec2f828191138e760d
+SHA256: 77d98478709a4a989d8523c13495616768a2f26b6e1f8963f63f7fcff38bb608
+Homepage: https://www.nlnetlabs.nl/projects/ldns/
+Description: Library for simplifying DNS programming and supporting recent and experimental RFCs
+
+Package: ldns-static
+Version: 1.8.4-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 688
+Depends: ldns (= 1.8.4-1)
+Filename: pool/main/ea7ef5d1fab656d7d3fb22c71f974b8037757ab0396bbbc2d2d54afbbca1336c.deb
+Size: 133596
+MD5sum: a6b4f961979591d3f14b99e4ec77f17c
+SHA1: 1073a35668acbbb5e7def0423eac93074d535f58
+SHA256: ea7ef5d1fab656d7d3fb22c71f974b8037757ab0396bbbc2d2d54afbbca1336c
+Homepage: https://www.nlnetlabs.nl/projects/ldns/
+Description: Static libraries for ldns
+
 Package: less
 Version: 702
 Architecture: aarch64
@@ -933,6 +979,36 @@ SHA1: d9e14e9422065f46ddd6080b3692776eef581ae5
 SHA256: 87c568c8efa341e9be1c26f57b45f668bff5e34fbd6ba9ce54c9853cd2bee5a3
 Homepage: https://www.oracle.com/database/berkeley-db
 Description: Static libraries for libdb
+
+Package: libedit
+Version: 20240517-3.1-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 292
+Depends: ncurses
+Breaks: libedit-dev
+Replaces: libedit-dev
+Filename: pool/main/fbe5f7e406270a1cd5d9e9bc277c849d138e63a3be01c9ad85fddf980eca2a41.deb
+Size: 78604
+MD5sum: a4603b4e5f19e03eda844b571af4ce05
+SHA1: 310492936faca435cd4d200dd2922a3b082fcfb7
+SHA256: fbe5f7e406270a1cd5d9e9bc277c849d138e63a3be01c9ad85fddf980eca2a41
+Homepage: https://thrysoee.dk/editline/
+Description: Library providing line editing, history, and tokenization functions
+
+Package: libedit-static
+Version: 20240517-3.1-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 384
+Depends: libedit (= 20240517-3.1-1)
+Filename: pool/main/5fef81a7eb137137e312ff45414444daa6988256dab8f58b62b700eeffe07152.deb
+Size: 76872
+MD5sum: 742f4fd476faa35c8ca73203a8fe671c
+SHA1: 9e6da0414f9b0dccb3f9384f5b6c1148f8a27970
+SHA256: 5fef81a7eb137137e312ff45414444daa6988256dab8f58b62b700eeffe07152
+Homepage: https://thrysoee.dk/editline/
+Description: Static libraries for libedit
 
 Package: libevent
 Version: 2.1.12-3
@@ -1546,6 +1622,20 @@ SHA256: 838eeca659aa19ea52e597c2f6cba7d6bd37fe4e5e021ec8e68a5917d6ea284a
 Homepage: http://www.libpng.org/pub/png/libpng.html
 Description: Static libraries for libpng
 
+Package: libresolv-wrapper
+Version: 1.1.7-6
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 104
+Depends: resolv-conf
+Filename: pool/main/253b4b02148a8fefd1abaf7de6e51a359fd5f9eeb4d3dca4285e1344066c9549.deb
+Size: 11348
+MD5sum: 75aaddca3565ecd20beed1c0cbdea585
+SHA1: 096db8a62e51d200e0de974fad8272f09db32606
+SHA256: 253b4b02148a8fefd1abaf7de6e51a359fd5f9eeb4d3dca4285e1344066c9549
+Homepage: https://cwrap.org/resolv_wrapper.html
+Description: A wrapper for DNS name resolving or DNS faking
+
 Package: libsmartcols
 Version: 2.42.1
 Architecture: aarch64
@@ -2127,6 +2217,37 @@ SHA256: fd0dd87b4fda4259c62041897f93080e05d78b69106a213bbd12392d1f872010
 Homepage: https://www.lysator.liu.se/~nisse/nettle/
 Description: Low level cryptographic tools
 
+Package: openssh
+Version: 10.3p1-1
+Architecture: aarch64
+Maintainer: Joshua Kahn <tom@termux.dev>
+Installed-Size: 5744
+Depends: krb5, ldns, libandroid-support, libedit, openssh-sftp-server, openssl, termux-auth, zlib
+Suggests: termux-services
+Conflicts: dropbear
+Filename: pool/main/4085c309456f076f09c0d5323379f3462a086d69aad88c87364de3fa23ed7a34.deb
+Size: 904980
+MD5sum: be95041eef0ce56c56f1f707db1b101b
+SHA1: 6eb0a4389c332498222100c812fc6b587b0216a1
+SHA256: 4085c309456f076f09c0d5323379f3462a086d69aad88c87364de3fa23ed7a34
+Homepage: https://www.openssh.com/
+Description: Secure shell for logging into a remote machine
+
+Package: openssh-sftp-server
+Version: 10.3p1-1
+Architecture: aarch64
+Maintainer: Joshua Kahn <tom@termux.dev>
+Installed-Size: 184
+Breaks: openssh (<= 9.9p2-1)
+Replaces: openssh (<= 9.9p2-1)
+Filename: pool/main/ef9174f68057baa0d7b961bb0f8f856272fb45e5e3c4400f5d93383b3a2cc5e4.deb
+Size: 55876
+MD5sum: e62f7e385961f0aec438245938e0b4a8
+SHA1: e45a69c35e69f1d02156f9cb2f96939bccc189e1
+SHA256: ef9174f68057baa0d7b961bb0f8f856272fb45e5e3c4400f5d93383b3a2cc5e4
+Homepage: https://www.openssh.com/
+Description: OpenSSH SFTP server subsystem
+
 Package: openssl
 Version: 1:3.6.3
 Architecture: aarch64
@@ -2540,6 +2661,22 @@ SHA1: 27662e2741444cd1dbbc712dae3c2c8e38e01d29
 SHA256: 8f04d240d09f3c9758e96d5ae8338f046e536511fdd1b8136e5c1efd4868c1fd
 Homepage: https://github.com/termux/TermuxAm
 Description: Android Oreo-compatible am command reimplementation
+
+Package: termux-auth
+Version: 1.5.0-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 80
+Depends: openssl
+Breaks: termux-auth-dev
+Replaces: termux-auth-dev
+Filename: pool/main/3f8f89f5d823421c9857d4f36d0a64ed3080c2309a3e73ce16c3074f61daa3f5.deb
+Size: 7100
+MD5sum: 3016d3ae5d30611bc75e1981b659249f
+SHA1: afe0f2baaeaef96656a6511217b89a16544ae13b
+SHA256: 3f8f89f5d823421c9857d4f36d0a64ed3080c2309a3e73ce16c3074f61daa3f5
+Homepage: https://github.com/termux/termux-auth
+Description: Password authentication library and utility for Termux
 
 Package: termux-exec
 Version: 1.9
