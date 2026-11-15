@@ -38,13 +38,6 @@ SOURCES = (
         '"https://downloads.isc.org/isc/bind9/${TERMUX_PKG_VERSION}/bind-${TERMUX_PKG_VERSION}.tar.xz"',
     ),
     Source(
-        "nodejs-lts",
-        "node-v24.17.0.tar.xz",
-        "https://nodejs.org/dist/v24.17.0/node-v24.17.0.tar.xz",
-        "a7ab562ed2369a29c68b72fa00e3103bcdfe37063dff799c6acc8e404e275fcd",
-        "https://nodejs.org/dist/v${TERMUX_PKG_VERSION}/node-v${TERMUX_PKG_VERSION}.tar.xz",
-    ),
-    Source(
         "netcat-openbsd",
         "netcat-openbsd-debian-1.238-1.tar.gz",
         "https://salsa.debian.org/debian/netcat-openbsd/-/archive/debian/1.238-1/netcat-openbsd-debian-1.238-1.tar.gz",
@@ -114,30 +107,6 @@ def patch_recipe(packages: Path, source: Source, source_dir_name: str) -> None:
     recipe.write_text(contents, encoding="utf-8")
 
 
-def patch_nodejs_lts(packages: Path) -> None:
-    recipe = packages / "packages" / "nodejs-lts" / "build.sh"
-    contents = recipe.read_text(encoding="utf-8")
-    contents = contents.replace(
-        'TERMUX_PKG_RECOMMENDS="npm"',
-        'TERMUX_PKG_PROVIDES="nodejs, npm"',
-    )
-    contents = contents.replace("\t\t--without-npm \\\n", "")
-    old_debscripts = """termux_step_create_debscripts() {
-\tcat <<- EOF > ./preinst
-\t#!$TERMUX_PREFIX/bin/sh
-\tif [ "\\$#" = "3" ] && dpkg --compare-versions "\\$2" le "24.13.0"; then
-\t\techo "Starting with nodejs-lts v24.13.0-1, npm is no longer bundled with nodejs-lts package."
-\t\techo "You might want to install npm package separately if you need it."
-\t\techo "You can install it by running: pkg install npm"
-\t\techo "It should not be needed unless you are using --no-install-recommends with apt."
-\tfi
-\tEOF
-}"""
-    if old_debscripts in contents:
-        contents = contents.replace(old_debscripts, "", 1)
-    recipe.write_text(contents, encoding="utf-8")
-
-
 def patch_foot_checksum(packages: Path) -> None:
     recipe = packages / "x11-packages" / "foot" / "build.sh"
     contents = recipe.read_text(encoding="utf-8")
@@ -162,7 +131,6 @@ def main() -> None:
         download(source, destination)
         patch_recipe(packages, source, source_dir.name)
         print(f"{source.package}: {source.sha256} {destination.name}")
-    patch_nodejs_lts(packages)
     patch_foot_checksum(packages)
 
 
