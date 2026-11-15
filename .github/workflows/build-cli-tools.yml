@@ -61,7 +61,7 @@ jobs:
               dest = out / f'{pkg}_{ver}_{arch}.deb'
               shutil.copy2(deb, dest)
               count += 1
-          assert count >= 205, f'Expected at least 205 existing packages, found {count}'
+          assert count >= 213, f'Expected at least 213 existing packages, found {count}'
           print(f'Restored {count} existing custom-prefix .deb packages to {out}')
           EOF
 
@@ -85,11 +85,11 @@ jobs:
           done
           df -h "$GITHUB_WORKSPACE"
 
-      - name: Build git, vim, wget, tmux, htop and missing ARM64 dependencies
+      - name: Build Group 2 CLI tools and ARM64 dependencies
         working-directory: termux-packages
         run: |
           set +e
-          ./scripts/run-docker.sh ./build-package.sh -a aarch64 wget htop tmux git libsodium vim > cli-tools-build.log 2>&1 &
+          ./scripts/run-docker.sh ./build-package.sh -a aarch64 termux-api zip oniguruma jq tree liblz4 libpopt zstd rsync libpcap lua54 nmap > cli-tools-build.log 2>&1 &
           build_pid=$!
           while kill -0 "$build_pid" 2>/dev/null; do
             sleep 45
@@ -102,9 +102,8 @@ jobs:
           tail -n 120 cli-tools-build.log
           exit "$result"
 
-      - name: Remove unused git-svn subpackage and verify custom prefix closure
+      - name: Verify custom prefix closure
         run: |
-          rm -f termux-packages/output/git-svn_*.deb
           python3 apt-repo/.github/scripts/verify-custom-cli-tools-packages.py termux-packages/output
 
       - name: Sign and verify the expanded APT repository
@@ -133,5 +132,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add pool dists
           git status -s
-          git commit -m "Publish custom-prefix git, vim, xxd, libsodium, wget, tmux, htop packages"
+          git commit -m "Publish custom-prefix termux-api, zip, jq, tree, rsync, nmap, lz4, zstd packages"
           git push origin HEAD:main

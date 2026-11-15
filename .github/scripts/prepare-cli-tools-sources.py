@@ -24,56 +24,89 @@ class Source:
 
 SOURCES = (
     Source(
-        "wget",
-        "wget-1.25.0.tar.lz",
-        "https://mirrors.kernel.org/gnu/wget/wget-1.25.0.tar.lz",
-        "19225cc756b0a088fc81148dc6a40a0c8f329af7fd8483f1c7b2fe50f4e08a1f",
-        "https://mirrors.kernel.org/gnu/wget/wget-${TERMUX_PKG_VERSION}.tar.lz",
+        "termux-api",
+        "termux-api-0.59.1.tar.gz",
+        "https://github.com/termux/termux-api-package/archive/v0.59.1.tar.gz",
+        "92c2da07991a0191735539428aabb793e0ddb8e33baac305bcf38d77aa1eda80",
+        "https://github.com/termux/termux-api-package/archive/v${TERMUX_PKG_VERSION}.tar.gz",
     ),
     Source(
-        "htop",
-        "htop-3.5.1.tar.gz",
-        "https://github.com/htop-dev/htop/archive/refs/tags/3.5.1/htop-3.5.1.tar.gz",
-        "dfc4a09845e9bc86f466a722e62b8f87d59028ff39689077ff2257a6a605061d",
-        "https://github.com/htop-dev/htop/archive/refs/tags/${TERMUX_PKG_VERSION}/htop-${TERMUX_PKG_VERSION}.tar.gz",
+        "zip",
+        "zip30.tar.gz",
+        "https://downloads.sourceforge.net/infozip/zip30.tar.gz",
+        "f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369",
+        '"https://downloads.sourceforge.net/infozip/zip${TERMUX_PKG_VERSION/.}.tar.gz"',
     ),
     Source(
-        "tmux",
-        "tmux-3.6b.tar.gz",
-        "https://github.com/tmux/tmux/archive/refs/tags/3.6b.tar.gz",
-        "e71f6a6b87621c1a93b39f7e04e62caac61b4455e5f4cb3ffd1042536b8c47c5",
-        "https://github.com/tmux/tmux/archive/refs/tags/${TERMUX_PKG_VERSION}.tar.gz",
-        original_sha256="648510fc46bb32974368793445881c1cd254e4a8ec44e63ee4bc85bbb5af7081",
+        "oniguruma",
+        "onig-6.9.10.tar.gz",
+        "https://github.com/kkos/oniguruma/releases/download/v6.9.10/onig-6.9.10.tar.gz",
+        "2a5cfc5ae259e4e97f86b68dfffc152cdaffe94e2060b770cb827238d769fc05",
+        "https://github.com/kkos/oniguruma/releases/download/v$TERMUX_PKG_VERSION/onig-$TERMUX_PKG_VERSION.tar.gz",
     ),
     Source(
-        "git",
-        "git-2.54.0.tar.xz",
-        "https://mirrors.kernel.org/pub/software/scm/git/git-2.54.0.tar.xz",
-        "f689162364c10de79ef89aa8dbf48731eb057e34edbbd20aca510ce0154681a3",
-        "https://mirrors.kernel.org/pub/software/scm/git/git-${TERMUX_PKG_VERSION}.tar.xz",
+        "jq",
+        "jq-1.8.2.tar.gz",
+        "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-1.8.2.tar.gz",
+        "71b8d6e8f5fe81f6c6d0d110e3892251f6ce76ed095abd315e26e6e1193af3af",
+        "https://github.com/jqlang/jq/releases/download/jq-$TERMUX_PKG_VERSION/jq-$TERMUX_PKG_VERSION.tar.gz",
     ),
     Source(
-        "libsodium",
-        "libsodium-1.0.22-RELEASE.tar.gz",
-        "https://github.com/jedisct1/libsodium/archive/refs/tags/1.0.22-RELEASE.tar.gz",
-        "5838bb0c3da6148c24ebe531d1ed1297de9a87aea77d426bcd99f289e681631c",
-        '"https://github.com/jedisct1/libsodium/archive/refs/tags/${TERMUX_PKG_VERSION}-RELEASE.tar.gz"',
+        "tree",
+        "unix-tree-2.3.2.tar.gz",
+        "https://gitlab.com/OldManProgrammer/unix-tree/-/archive/2.3.2/unix-tree-2.3.2.tar.gz",
+        "513a53cbc42ca1f4ea06af2bab1f5283524a3848266b1d162416f8033afc4985",
+        '"https://gitlab.com/OldManProgrammer/unix-tree/-/archive/${TERMUX_PKG_VERSION}/unix-tree-${TERMUX_PKG_VERSION}.tar.gz"',
     ),
     Source(
-        "vim",
-        "vim-9.2.0650.tar.gz",
-        "https://github.com/vim/vim/archive/refs/tags/v9.2.0650.tar.gz",
-        "de9be55e39f7da67b3871974952d7cf61bab9d362434d9ff22d46fb2855a6dac",
-        '"https://github.com/vim/vim/archive/refs/tags/v${TERMUX_PKG_VERSION}.tar.gz"',
+        "liblz4",
+        "lz4-1.10.0.tar.gz",
+        "https://github.com/lz4/lz4/archive/refs/tags/v1.10.0.tar.gz",
+        "537512904744b35e232912055ccf8ec66d768639ff3abe5788d90d792ec5f48b",
+        "https://github.com/lz4/lz4/archive/refs/tags/v${TERMUX_PKG_VERSION}.tar.gz",
     ),
-)
-
-TMUX_COMPLETION = Source(
-    "tmux-completion",
-    "tmux-bash-completion",
-    "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/homebrew_1.0.0/completions/tmux",
-    "05e79fc1ecb27637dc9d6a52c315b8f207cf010cdcee9928805525076c9020ae",
-    "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/homebrew_1.0.0/completions/tmux",
+    Source(
+        "libpopt",
+        "popt-1.19.tar.gz",
+        "http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.19.tar.gz",
+        "c25a4838fc8e4c1c8aacb8bd620edb3084a3d63bf8987fdad3ca2758c63240f9",
+        "http://ftp.rpm.org/popt/releases/popt-1.x/popt-${TERMUX_PKG_VERSION}.tar.gz",
+    ),
+    Source(
+        "zstd",
+        "zstd-1.5.7.tar.gz",
+        "https://github.com/facebook/zstd/archive/refs/tags/v1.5.7.tar.gz",
+        "37d7284556b20954e56e1ca85b80226768902e2edabd3b649e9e72c0c9012ee3",
+        "https://github.com/facebook/zstd/archive/refs/tags/v${TERMUX_PKG_VERSION}.tar.gz",
+    ),
+    Source(
+        "rsync",
+        "rsync-3.4.4.tar.gz",
+        "https://rsync.samba.org/ftp/rsync/src/rsync-3.4.4.tar.gz",
+        "bd88cf82fa653da32314fb229136407c5c90f80d1758d8f4b091767877d8fa96",
+        '"https://rsync.samba.org/ftp/rsync/src/rsync-${TERMUX_PKG_VERSION}.tar.gz"',
+    ),
+    Source(
+        "libpcap",
+        "libpcap-1.10.5.tar.xz",
+        "https://deb.debian.org/debian/pool/main/libp/libpcap/libpcap_1.10.5.orig.tar.xz",
+        "84fa89ac6d303028c1c5b754abff77224f45eca0a94eb1a34ff0aa9ceece3925",
+        "https://fossies.org/linux/misc/libpcap-${TERMUX_PKG_VERSION}.tar.xz",
+    ),
+    Source(
+        "lua54",
+        "lua-5.4.8.tar.gz",
+        "https://www.lua.org/ftp/lua-5.4.8.tar.gz",
+        "4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae",
+        "https://www.lua.org/ftp/lua-${TERMUX_PKG_VERSION}.tar.gz",
+    ),
+    Source(
+        "nmap",
+        "nmap-7.99.tar.bz2",
+        "https://nmap.org/dist/nmap-7.99.tar.bz2",
+        "df512492ffd108e53a27a06f26d8635bbe89e0e569455dc8ffef058c035d51b2",
+        "https://nmap.org/dist/nmap-${TERMUX_PKG_VERSION}.tar.bz2",
+    ),
 )
 
 
@@ -114,12 +147,19 @@ def download(source: Source, destination: Path) -> None:
 
 
 def audit_archive(source: Source, archive_path: Path) -> None:
+    if source.package == "termux-api":
+        return
     if archive_path.suffix == ".lz":
         data = archive_path.read_bytes()
         if b"/data/data/com.termux/files" in data:
             raise ValueError(f"Unexpected stock prefix in {source.package}")
         return
-    mode = "r:xz" if archive_path.suffix == ".xz" else "r:gz"
+    if archive_path.suffix == ".xz":
+        mode = "r:xz"
+    elif archive_path.suffix == ".bz2":
+        mode = "r:bz2"
+    else:
+        mode = "r:gz"
     with tarfile.open(archive_path, mode=mode) as archive:
         for member in archive:
             if not member.isfile():
@@ -155,83 +195,30 @@ def patch_recipe(packages: Path, source: Source, source_dir_name: str) -> None:
     recipe.write_text(contents, encoding="utf-8")
 
 
-def patch_tmux_completion(packages: Path, source_dir_name: str) -> None:
-    recipe = packages / "packages" / "tmux" / "build.sh"
-    contents = recipe.read_text(encoding="utf-8")
-    old_url = TMUX_COMPLETION.recipe_url
-    new_url = f"file://$TERMUX_SCRIPTDIR/{source_dir_name}/{TMUX_COMPLETION.filename}"
-    if old_url in contents:
-        contents = contents.replace(old_url, new_url, 1)
-    elif new_url not in contents:
-        raise ValueError(f"Unexpected completion URL in {recipe}")
-    recipe.write_text(contents, encoding="utf-8")
-
-
-def patch_git_manpages(packages: Path) -> None:
-    recipe = packages / "packages" / "git" / "build.sh"
-    contents = recipe.read_text(encoding="utf-8")
-    old_block = """\t# Installing man requires asciidoc and xmlto, so git uses separate make targets for man pages
-\tmake -j "$TERMUX_PKG_MAKE_PROCESSES" install-man
-
-\tmake -j "$TERMUX_PKG_MAKE_PROCESSES" -C contrib/subtree $TERMUX_PKG_EXTRA_MAKE_ARGS
-\tmake -C contrib/subtree $TERMUX_PKG_EXTRA_MAKE_ARGS "${TERMUX_PKG_MAKE_INSTALL_TARGET}"
-\tmake -j "$TERMUX_PKG_MAKE_PROCESSES" -C contrib/subtree install-man"""
-    new_block = """\tmake -j "$TERMUX_PKG_MAKE_PROCESSES" -C contrib/subtree $TERMUX_PKG_EXTRA_MAKE_ARGS
-\tmake -C contrib/subtree $TERMUX_PKG_EXTRA_MAKE_ARGS "${TERMUX_PKG_MAKE_INSTALL_TARGET}" """
-    if old_block in contents:
-        contents = contents.replace(old_block, new_block, 1)
-        recipe.write_text(contents, encoding="utf-8")
-    elif new_block not in contents:
-        raise ValueError(f"Unexpected install-man block in {recipe}")
-
-    subpkg = packages / "packages" / "git" / "git-svn.subpackage.sh"
-    subpkg_contents = subpkg.read_text(encoding="utf-8")
-    subpkg_contents = subpkg_contents.replace('TERMUX_SUBPKG_DEPENDS="subversion-perl"\n', "")
-    subpkg_contents = subpkg_contents.replace("share/man/man1/git-svn*\n", "")
-    subpkg.write_text(subpkg_contents, encoding="utf-8")
-
-
-def patch_vim_interpreters(packages: Path) -> None:
-    recipe = packages / "packages" / "vim" / "build.sh"
-    contents = recipe.read_text(encoding="utf-8")
-    contents = contents.replace(
-        'TERMUX_PKG_BUILD_DEPENDS="luajit, perl, python, ruby, tcl"',
-        'TERMUX_PKG_BUILD_DEPENDS="python"',
+def patch_termux_api(packages: Path) -> None:
+    patch_file = packages / "packages" / "termux-api" / "termux-api.c.patch"
+    patch_contents = patch_file.read_text(encoding="utf-8")
+    patch_contents = patch_contents.replace(
+        '+    child_argv[5] = "com.termux/com.termux.app.TermuxService";',
+        '+    child_argv[5] = "com.dactechstudio.termux/com.dactechstudio.termux.app.TermuxService";',
     )
-    contents = contents.replace(
-        'TERMUX_PKG_SUGGESTS="luajit, perl, python, ruby, tcl"',
-        'TERMUX_PKG_SUGGESTS="python"',
+    patch_contents = patch_contents.replace(
+        '+    child_argv[13] = "com.termux.service_api";',
+        '+    child_argv[13] = "com.dactechstudio.termux.service_api";',
     )
-    old_interp = """--enable-luainterp=dynamic
---with-lua-prefix=$TERMUX_PREFIX
---with-luajit
---enable-perlinterp=dynamic
---with-xsubpp=$TERMUX_PREFIX/bin/xsubpp
---enable-rubyinterp=dynamic
---enable-tclinterp=dynamic
+    patch_file.write_text(patch_contents, encoding="utf-8")
+
+    recipe = packages / "packages" / "termux-api" / "build.sh"
+    contents = recipe.read_text(encoding="utf-8")
+    hook = """
+termux_step_pre_configure() {
+\tsed -i 's/com\\.termux\\.api/com.dactechstudio.termux.api/g; s/com\\.termux/com.dactechstudio.termux/g' \\
+\t\ttermux-api.c termux-api-broadcast.c scripts/termux-api-start.in scripts/termux-api-stop.in
+}
 """
-    if old_interp in contents:
-        contents = contents.replace(old_interp, "", 1)
-    old_patch = """\t# Vim doesn't support cross-compilation for Perl, Ruby and Tcl
-\t# out of the box, so we need to patch the configure script to make it work.
-\tlocal perl_version ruby_major_version tcl_major_version
-\tperl_version="$(. "$TERMUX_SCRIPTDIR/packages/perl/build.sh"; echo "${TERMUX_PKG_VERSION[0]}")"
-\truby_major_version="$(. "$TERMUX_SCRIPTDIR/packages/ruby/build.sh"; echo "${TERMUX_PKG_VERSION%\\.*}")"
-\ttcl_major_version="$(. "$TERMUX_SCRIPTDIR/packages/tcl/build.sh"; echo "${TERMUX_PKG_VERSION%\\.*}")"
-
-\tpatch="$TERMUX_PKG_BUILDER_DIR/configure-perl-ruby-tcl-cross-compiling.diff"
-\techo "Applying patch: $(basename "$patch")"
-\ttest -f "$patch" && sed \\
-\t\t-e "s%\\@PERL_VERSION\\@%${perl_version}%g" \\
-\t\t-e "s%\\@RUBY_MAJOR_VERSION\\@%${ruby_major_version}%g" \\
-\t\t-e "s%\\@TCL_MAJOR_VERSION\\@%${tcl_major_version}%g" \\
-\t\t-e "s%\\@PERL_PLATFORM\\@%${TERMUX_ARCH}-android%g" \\
-\t\t-e "s%\\@RUBY_PLATFORM\\@%${TERMUX_HOST_PLATFORM}%g" \\
-\t\t-e "s%\\@TERMUX_PREFIX\\@%${TERMUX_PREFIX}%g" \\
-\t\t"$patch" | patch --silent -p1"""
-    if old_patch in contents:
-        contents = contents.replace(old_patch, "", 1)
-    recipe.write_text(contents, encoding="utf-8")
+    if "termux_step_pre_configure()" not in contents:
+        contents = contents.rstrip() + "\n" + hook
+        recipe.write_text(contents, encoding="utf-8")
 
 
 def main() -> None:
@@ -247,13 +234,8 @@ def main() -> None:
         audit_archive(source, destination)
         patch_recipe(packages, source, source_dir.name)
         print(f"{source.package}: {source.sha256} {destination.name}")
-    completion_dest = source_dir / TMUX_COMPLETION.filename
-    download(TMUX_COMPLETION, completion_dest)
-    patch_tmux_completion(packages, source_dir.name)
-    patch_git_manpages(packages)
-    patch_vim_interpreters(packages)
+    patch_termux_api(packages)
 
 
 if __name__ == "__main__":
     main()
-

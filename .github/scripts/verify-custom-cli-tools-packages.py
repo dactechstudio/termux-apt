@@ -14,19 +14,43 @@ NEW_PREFIX = b"/data/data/com.dactechstudio.termux/files"
 REQUIRED = {
     "git",
     "htop",
+    "jq",
+    "liblz4",
+    "libpcap",
+    "libpopt",
     "libsodium",
+    "lua54",
+    "lz4",
+    "nmap",
+    "oniguruma",
+    "pzstd",
+    "rsync",
+    "termux-api",
     "tmux",
+    "tree",
     "vim",
     "wget",
     "xxd",
+    "zip",
+    "zstd",
 }
 REQUIRED_BINARIES = {
     "git": "bin/git",
     "htop": "bin/htop",
+    "jq": "bin/jq",
+    "lua54": "bin/lua5.4",
+    "lz4": "bin/lz4",
+    "nmap": "bin/nmap",
+    "pzstd": "bin/pzstd",
+    "rsync": "bin/rsync",
+    "termux-api": "libexec/termux-api",
     "tmux": "bin/tmux",
+    "tree": "bin/tree",
     "vim": "libexec/vim/vim",
     "wget": "bin/wget",
     "xxd": "bin/xxd",
+    "zip": "bin/zip",
+    "zstd": "bin/zstd",
 }
 
 
@@ -68,6 +92,10 @@ def main() -> None:
                     raise ValueError(
                         f"Stock com.termux prefix remains in {name}:{candidate.relative_to(destination)}"
                     )
+                if name == "termux-api" and b"com.termux" in data:
+                    raise ValueError(
+                        f"Stock com.termux package reference remains in {name}:{candidate.relative_to(destination)}"
+                    )
                 saw_new_prefix = saw_new_prefix or NEW_PREFIX in data
             expected_bin = REQUIRED_BINARIES.get(name)
             if expected_bin is not None:
@@ -91,4 +119,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
