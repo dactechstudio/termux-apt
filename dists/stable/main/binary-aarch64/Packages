@@ -528,6 +528,22 @@ SHA256: 96ca85f0cb9c22f02f019a53ea8e74b81e73a18fb7058145ece93b2266c67e57
 Homepage: https://www.gnu.org.ua/software/gdbm/
 Description: Static libraries for gdbm
 
+Package: git
+Version: 2.54.0
+Architecture: aarch64
+Maintainer: Joshua Kahn <tom@termux.dev>
+Installed-Size: 27948
+Depends: libcurl, libexpat, less, openssl, pcre2, zlib
+Recommends: openssh
+Suggests: perl
+Filename: pool/main/2a28f7c923c445573314af638c83417fd6c8549f8e6215c96b06c220f16ab57d.deb
+Size: 4042488
+MD5sum: 06d6fb13ac46bd2992142a8b40d0fae8
+SHA1: f47d1eaeec2690098b8bb18029162bed24a77f4a
+SHA256: 2a28f7c923c445573314af638c83417fd6c8549f8e6215c96b06c220f16ab57d
+Homepage: https://git-scm.com/
+Description: Fast, scalable, distributed revision control system
+
 Package: gnupg
 Version: 2.5.17
 Architecture: aarch64
@@ -587,6 +603,23 @@ SHA1: 1448a244c42656a5e2b137cb1f21ffb945f45ee9
 SHA256: dbe2e70d83dfe5545b6a415d4e06220f3bd20dcc1186f9f732c19676026c334c
 Homepage: https://www.gnu.org/software/grep/
 Description: Command which searches one or more input files for lines containing a match to a specified pattern
+
+Package: htop
+Version: 3.5.1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 400
+Depends: libandroid-support, ncurses
+Conflicts: htop-legacy
+Breaks: htop-legacy
+Replaces: htop-legacy
+Filename: pool/main/78149a78e1c3fa12da296dfe0e602970e154afa8876f70cdaec3a5a59ef87dc1.deb
+Size: 125064
+MD5sum: af363a1be0a5ad3663a43e4e2f235330
+SHA1: 469b0a60aa3d78365794e29382ec5517a86978ad
+SHA256: 78149a78e1c3fa12da296dfe0e602970e154afa8876f70cdaec3a5a59ef87dc1
+Homepage: https://htop.dev/
+Description: Interactive process viewer for Linux
 
 Package: iconv
 Version: 1.18-1
@@ -1651,6 +1684,35 @@ SHA1: a898f3236cd394261e569e7abd648ee3eaa1bc12
 SHA256: 381fef38eb288700ca99415cf9fa9e53093604bdde96eb4003960b08f415a046
 Homepage: https://en.wikipedia.org/wiki/Util-linux
 Description: Library for smart adaptive formatting of tabular data
+
+Package: libsodium
+Version: 1.0.22-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 720
+Breaks: libsodium-dev
+Replaces: libsodium-dev
+Filename: pool/main/a80d57220b5c4250fe16e9bb5c2014d1f5db4f16568511e97fd423d96cf0dd9f.deb
+Size: 151036
+MD5sum: ac8e5f655d45b4b382da8d8cc0b84e1d
+SHA1: e99f23dc01ccf203bdb1559580d8dff96f70e507
+SHA256: a80d57220b5c4250fe16e9bb5c2014d1f5db4f16568511e97fd423d96cf0dd9f
+Homepage: https://libsodium.org/
+Description: Network communication, cryptography and signaturing library
+
+Package: libsodium-static
+Version: 1.0.22-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 648
+Depends: libsodium (= 1.0.22-1)
+Filename: pool/main/0201bc93ef9f8b92764ea40c6083a337876ccd514279ac78880b9669b48efd5c.deb
+Size: 150656
+MD5sum: 055547f82aa7948f43dbcc9d44fd8d55
+SHA1: df0f898e637c8a9dc496f7d4b570e966c195e74e
+SHA256: 0201bc93ef9f8b92764ea40c6083a337876ccd514279ac78880b9669b48efd5c
+Homepage: https://libsodium.org/
+Description: Static libraries for libsodium
 
 Package: libsqlite
 Version: 3.53.2
@@ -2751,6 +2813,20 @@ SHA256: 2e9d59bfbc1fb0ecda13e699fa519c699110856df286c73321e824e5eb873502
 Homepage: https://tcl.sourceforge.net/
 Description: A windowing toolkit for use with tcl
 
+Package: tmux
+Version: 3.6b
+Architecture: aarch64
+Maintainer: Joshua Kahn <tom@termux.dev>
+Installed-Size: 996
+Depends: ncurses, libevent
+Filename: pool/main/b931236976677d413e066e6c41356cc9ca07fda9226339665c43654e57ef0910.deb
+Size: 357408
+MD5sum: 2ed2ac1e2b57ddc573c3bb169fb1d9a9
+SHA1: 96e7a4b7e0dbfb6ca063e79af1fc1899a0c62a39
+SHA256: b931236976677d413e066e6c41356cc9ca07fda9226339665c43654e57ef0910
+Homepage: https://tmux.github.io/
+Description: Terminal multiplexer
+
 Package: tor
 Version: 0.4.9.9
 Architecture: aarch64
@@ -2851,6 +2927,40 @@ SHA256: 20cb984dd3711cdc5336001a89f3009fa4dcd5e8db401d5402e9b9affb9166a9
 Homepage: https://en.wikipedia.org/wiki/Util-linux
 Description: Utilities for handling universally unique identifiers
 
+Package: vim
+Version: 9.2.0650
+Architecture: aarch64
+Maintainer: Joshua Kahn <tom@termux.dev>
+Installed-Size: 34232
+Depends: libiconv, libsodium, ncurses
+Recommends: diffutils, xxd
+Suggests: python
+Conflicts: vim-gtk
+Breaks: vim-python, vim-runtime
+Replaces: vim-python, vim-runtime
+Provides: vim-python
+Filename: pool/main/7185dfe1ef2b20ff10708b771537f418383619b8a1a4d7e0fe11e502bc36bd7e.deb
+Size: 6594784
+MD5sum: 79c2c311a1a1a40e9181299cd5f87774
+SHA1: 0cb5e77eb974d09372bfe0ff3874a1e5df737735
+SHA256: 7185dfe1ef2b20ff10708b771537f418383619b8a1a4d7e0fe11e502bc36bd7e
+Homepage: https://www.vim.org
+Description: Vi IMproved - enhanced vi editor
+
+Package: wget
+Version: 1.25.0-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 804
+Depends: libidn2, libuuid, openssl, pcre2, zlib
+Filename: pool/main/f89e1fc6750b0dc9d3bd26ccea582d1779bce81e7bd1381ddf61dfcc8618c4b4.deb
+Size: 284768
+MD5sum: 59797634d3ea6de0ce279aea2df823f2
+SHA1: a46aa3e8c9fcf715d695f32500a45e61c77f75ba
+SHA256: f89e1fc6750b0dc9d3bd26ccea582d1779bce81e7bd1381ddf61dfcc8618c4b4
+Homepage: https://www.gnu.org/software/wget/
+Description: Commandline tool for retrieving files using HTTP, HTTPS and FTP
+
 Package: xcb-proto
 Version: 1.17.0-2
 Architecture: all
@@ -2921,6 +3031,19 @@ SHA1: 90ed8f041cd8a8fce3048a1be790f1b17a7d4719
 SHA256: 898d16195a529c7c006e81a7fd6259b434e2f2e545cdca480b20a67511552ebc
 Homepage: https://xorg.freedesktop.org/
 Description: X transport library
+
+Package: xxd
+Version: 9.2.0650
+Architecture: aarch64
+Maintainer: Joshua Kahn <tom@termux.dev>
+Installed-Size: 68
+Filename: pool/main/929799f920d071e92776686d234cd183a3abc162bbd6dc06b2012599c7ceb9e7.deb
+Size: 13452
+MD5sum: 1d3f70433d9ca67e072188fcf42c79fb
+SHA1: 03b084cea4641b3f01faa979150de5361eb5f91e
+SHA256: 929799f920d071e92776686d234cd183a3abc162bbd6dc06b2012599c7ceb9e7
+Homepage: https://www.vim.org
+Description: Hexdump utility from vim
 
 Package: xxhash
 Version: 0.8.3-1
