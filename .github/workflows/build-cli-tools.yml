@@ -1,0 +1,137 @@
+name: Build and Publish Custom CLI Tools
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TERMUX_BUILDER_IMAGE_NAME: ghcr.io/termux-play-store/package-builder@sha256:386c6a80a6b40c22a716db0dff31edb0a9169a5335059aba28c65812bd5d121a
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - name: Check out termux-apt repository
+        uses: actions/checkout@v4
+        with:
+          path: apt-repo
+          persist-credentials: true
+
+      - name: Check out pinned Termux Play Store package sources
+        uses: actions/checkout@v4
+        with:
+          repository: termux-play-store/termux-packages
+          ref: 57401119f9988f79fa095398a9b33b03380222b3
+          path: termux-packages
+          persist-credentials: false
+
+      - name: Set the custom application package
+        working-directory: termux-packages
+        run: |
+          python3 - <<'EOF'
+          from pathlib import Path
+
+          source = Path('scripts/properties.sh')
+          old = 'TERMUX_APP__PACKAGE_NAME="com.termux"'
+          new = 'TERMUX_APP__PACKAGE_NAME="com.dactechstudio.termux"'
+          contents = source.read_text()
+          assert contents.count(old) == 1, 'Upstream package property changed'
+          source.write_text(contents.replace(old, new))
+          EOF
+          grep -F 'TERMUX_APP__PACKAGE_NAME="com.dactechstudio.termux"' scripts/properties.sh
+
+      - name: Restore existing custom-prefix packages from pool/main into output
+        run: |
+          python3 - <<'EOF'
+          from pathlib import Path
+          import shutil
+          import subprocess
+
+          pool = Path('apt-repo/pool/main')
+          out = Path('termux-packages/output')
+          out.mkdir(parents=True, exist_ok=True)
+          count = 0
+          for deb in sorted(pool.glob('*.deb')):
+              pkg = subprocess.check_output(['dpkg-deb', '--field', str(deb), 'Package'], text=True).strip()
+              ver = subprocess.check_output(['dpkg-deb', '--field', str(deb), 'Version'], text=True).strip()
+              arch = subprocess.check_output(['dpkg-deb', '--field', str(deb), 'Architecture'], text=True).strip()
+              dest = out / f'{pkg}_{ver}_{arch}.deb'
+              shutil.copy2(deb, dest)
+              count += 1
+          assert count >= 205, f'Expected at least 205 existing packages, found {count}'
+          print(f'Restored {count} existing custom-prefix .deb packages to {out}')
+          EOF
+
+      - name: Verify and vendor the complete CLI tools source closure
+        run: python3 apt-repo/.github/scripts/prepare-cli-tools-sources.py termux-packages
+
+      - name: Free runner disk for the Termux Docker build
+        run: |
+          df -h "$GITHUB_WORKSPACE"
+          for path in \
+            /usr/local/lib/android/sdk \
+            /usr/share/dotnet \
+            /usr/local/swift \
+            /opt/hostedtoolcache \
+            /usr/share/miniconda \
+            /usr/local/share/powershell; do
+            if [ -e "$path" ]; then
+              sudo du -sh "$path"
+              sudo rm -rf -- "$path"
+            fi
+          done
+          df -h "$GITHUB_WORKSPACE"
+
+      - name: Build git, vim, wget, tmux, htop and missing ARM64 dependencies
+        working-directory: termux-packages
+        run: |
+          set +e
+          ./scripts/run-docker.sh ./build-package.sh -a aarch64 wget htop tmux git libsodium vim > cli-tools-build.log 2>&1 &
+          build_pid=$!
+          while kill -0 "$build_pid" 2>/dev/null; do
+            sleep 45
+            printf 'CLI tools build still running at %s UTC; log size: %s bytes\n' "$(date -u +%H:%M:%S)" "$(wc -c < cli-tools-build.log)"
+            df -h . | tail -n 1
+            grep -E 'termux - building |termux - build of |Wrong checksum|ERROR:' cli-tools-build.log | tail -n 5 || true
+          done
+          wait "$build_pid"
+          result=$?
+          tail -n 120 cli-tools-build.log
+          exit "$result"
+
+      - name: Remove unused git-svn subpackage and verify custom prefix closure
+        run: |
+          rm -f termux-packages/output/git-svn_*.deb
+          python3 apt-repo/.github/scripts/verify-custom-cli-tools-packages.py termux-packages/output
+
+      - name: Sign and verify the expanded APT repository
+        env:
+          APT_REPO_SIGNING_KEY: ${{ secrets.APT_REPO_SIGNING_KEY }}
+        run: |
+          test -n "${APT_REPO_SIGNING_KEY:-}"
+          export GNUPGHOME
+          GNUPGHOME=$(mktemp -d)
+          chmod 700 "$GNUPGHOME"
+          trap 'rm -rf -- "$GNUPGHOME"' EXIT
+          printf '%s' "$APT_REPO_SIGNING_KEY" | gpg --batch --import
+          expected=$(gpg --batch --show-keys --with-colons apt-repo/.github/scripts/dactech-apt.asc | awk -F: '$1 == "fpr" {print $10; exit}')
+          actual=$(gpg --batch --list-secret-keys --with-colons | awk -F: '$1 == "fpr" {print $10; exit}')
+          test -n "$expected" && test "$expected" = "$actual"
+          python3 apt-repo/.github/scripts/build-apt-repository.py termux-packages/output staged-apt
+          gpg --batch --verify staged-apt/dists/stable/InRelease
+
+      - name: Commit and push expanded APT repository to main
+        working-directory: apt-repo
+        run: |
+          rm -rf pool dists
+          mv ../staged-apt/pool pool
+          mv ../staged-apt/dists dists
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pool dists
+          git status -s
+          git commit -m "Publish custom-prefix git, vim, xxd, libsodium, wget, tmux, htop packages"
+          git push origin HEAD:main
