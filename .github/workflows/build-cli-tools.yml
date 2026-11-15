@@ -1,4 +1,4 @@
-name: Build and Publish Custom CLI Tools
+name: Build and Publish Custom Network Utilities
 
 on:
   workflow_dispatch:
@@ -132,5 +132,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add pool dists
           git status -s
-          git commit -m "Publish custom-prefix nodejs-lts (with bundled npm and npx) package"
+          git commit -m "Update signed custom-prefix APT packages"
           git push origin HEAD:main
