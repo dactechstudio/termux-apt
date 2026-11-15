@@ -180,6 +180,19 @@ SHA256: 07364e91b59af1573953f113b2a99c19e38ad8b26a9b129acebf3c0d9260dcf3
 Homepage: https://curl.se/docs/caextract.html
 Description: Common CA certificates (java keystore format)
 
+Package: cmocka
+Version: 2.0.2
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 388
+Filename: pool/main/36fbefbc3fcd88db79e011ea21fa4b2392ab39c9ba1a7a9aac4138751740dc54.deb
+Size: 48048
+MD5sum: 5075271e7c011ce1527163ec2ba45915
+SHA1: 8a09f98cdb486f367e84da3ab9224d40df4c29d7
+SHA256: 36fbefbc3fcd88db79e011ea21fa4b2392ab39c9ba1a7a9aac4138751740dc54
+Homepage: https://cmocka.org/
+Description: cmocka is an unit testing framework for C
+
 Package: command-not-found
 Version: 3.4.1-15
 Architecture: aarch64
@@ -282,6 +295,22 @@ SHA256: ff2d5f718a8c50e57cae003ce6b7e9cf9a842a7d9eb04a503d6c40350e85a306
 Homepage: https://www.gnu.org/software/diffutils/
 Description: Programs (cmp, diff, diff3 and sdiff) related to finding differences between files
 
+Package: dnsutils
+Version: 9.20.24
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 6776
+Depends: cmocka, json-c, krb5, libandroid-execinfo, libandroid-glob, libcap, libnghttp2, liburcu, libuv, libxml2, openssl, readline, resolv-conf, zlib
+Breaks: dnsutils-dev
+Replaces: dnsutils-dev
+Filename: pool/main/34a44e0cf48b1636d59764c5161fb78e2d9b4495ced7c4c9339c4a7860b92ce9.deb
+Size: 1701968
+MD5sum: b044fa9ef49305d09a1f005ec5ebcf01
+SHA1: 0ee0db4e65ef5c9c86533bef4b933b32315a1234
+SHA256: 34a44e0cf48b1636d59764c5161fb78e2d9b4495ced7c4c9339c4a7860b92ce9
+Homepage: https://www.isc.org/bind/
+Description: Clients provided with BIND
+
 Package: docbook-xml
 Version: 5.1-1
 Architecture: all
@@ -324,6 +353,20 @@ SHA1: 54a9f0d1e31da58d342728c87dfe4bbda4d63907
 SHA256: e7867ed9594e8a2695814d0d7140a4172ca3a8df1de620b0810dbe24aed7388d
 Homepage: https://waterlander.net/dos2unix/
 Description: Converts between DOS and Unix text files
+
+Package: doxygen
+Version: 1.17.0
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 44840
+Depends: libc++, libiconv
+Filename: pool/main/1099c666abfdcd2e4705379913c28124a964d5c314becad4cdf57570bc6a90ba.deb
+Size: 9607520
+MD5sum: a93a1dd32568b1b482dfe025f78196f8
+SHA1: a7aa2cf77d6bd10baad76011ccd989a33ae63b80
+SHA256: 1099c666abfdcd2e4705379913c28124a964d5c314becad4cdf57570bc6a90ba
+Homepage: http://www.doxygen.org
+Description: A documentation system for C++, C, Java, IDL and PHP
 
 Package: dpkg
 Version: 1.22.6-5
@@ -755,6 +798,35 @@ SHA256: 63d793dc7c35d5831cf067767db9bda950502d351e92884a43438138098c7bb6
 Homepage: https://jqlang.org/
 Description: Static libraries for jq
 
+Package: json-c
+Version: 0.18-2
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 288
+Breaks: json-c-dev
+Replaces: json-c-dev
+Filename: pool/main/48e068ef9b92f46a4172c761b8643d32b619fb19b4109035a6a9750c75139bc0.deb
+Size: 49632
+MD5sum: 3bf369d28c739f40e104da8020b9b428
+SHA1: a42c2c4f4ca4c190f38db6951dfb8f76e889d0fa
+SHA256: 48e068ef9b92f46a4172c761b8643d32b619fb19b4109035a6a9750c75139bc0
+Homepage: https://github.com/json-c/json-c/wiki
+Description: A JSON implementation in C
+
+Package: json-c-static
+Version: 0.18-2
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 176
+Depends: json-c (= 0.18-2)
+Filename: pool/main/7755d75daa1daa88708e234d5c7252e26a820b0a5bb82825ba3751c39902d8d0.deb
+Size: 30200
+MD5sum: 83e4bf08e0c80d1bb9e8fa9843eb8b57
+SHA1: f6064d27a8a33b306afc0d140fe35f2f66a33e8a
+SHA256: 7755d75daa1daa88708e234d5c7252e26a820b0a5bb82825ba3751c39902d8d0
+Homepage: https://github.com/json-c/json-c/wiki
+Description: Static libraries for json-c
+
 Package: krb5
 Version: 1.22.2
 Architecture: aarch64
@@ -844,6 +916,35 @@ SHA1: 9f8262a492591f9e26b58eb08db4d869cc9b83b5
 SHA256: 2b7fb79686e61b00259d505f9dc81e8329009280327a9b721e1e4326f837777d
 Homepage: http://savannah.nongnu.org/projects/acl
 Description: Static libraries for libacl
+
+Package: libandroid-execinfo
+Version: 0.1-3
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 88
+Conflicts: libexecinfo
+Provides: libexecinfo
+Filename: pool/main/62254445e40138938b2dd9e8717b306a52bf2c999d16817037e6899f643e84c5.deb
+Size: 15304
+MD5sum: a30a976010f8d26ea468655abfda38f0
+SHA1: b725209ab5eb8d7cc641e54b96441ed158d3e7a3
+SHA256: 62254445e40138938b2dd9e8717b306a52bf2c999d16817037e6899f643e84c5
+Homepage: https://man7.org/linux/man-pages/man3/backtrace.3.html
+Description: Shared library for the backtrace system function
+
+Package: libandroid-execinfo-static
+Version: 0.1-3
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 36
+Depends: libandroid-execinfo (= 0.1-3)
+Filename: pool/main/44b3b9d9d73607220d8762442ac307dea22ff7eb086675424c6fbd2b84bd0d9a.deb
+Size: 2420
+MD5sum: 2ea2c6087bd33d900a77fca68aab63f5
+SHA1: 3aca9f495204cd70e13325384ad8486599f17371
+SHA256: 44b3b9d9d73607220d8762442ac307dea22ff7eb086675424c6fbd2b84bd0d9a
+Homepage: https://man7.org/linux/man-pages/man3/backtrace.3.html
+Description: Static libraries for libandroid-execinfo
 
 Package: libandroid-glob
 Version: 0.7-1
@@ -971,6 +1072,36 @@ SHA256: 9223f9f51cfec3909b5fcdf3cea0cabff490fc81c8763006d0e16a314b211ab7
 Homepage: https://en.wikipedia.org/wiki/Util-linux
 Description: Block device identification library
 
+Package: libbsd
+Version: 0.12.2-2
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 1308
+Depends: libmd
+Breaks: libbsd-dev
+Replaces: libbsd-dev
+Filename: pool/main/2817b86212a411bc3c9f6371600cd6996c10bec65d47775cc2867a926bc332be.deb
+Size: 146536
+MD5sum: 0d0773479ab231106c74436fddf29998
+SHA1: ff46a0d14b07a89f19a77bb70b046ed6aa34b30a
+SHA256: 2817b86212a411bc3c9f6371600cd6996c10bec65d47775cc2867a926bc332be
+Homepage: https://libbsd.freedesktop.org
+Description: utility functions from BSD systems
+
+Package: libbsd-static
+Version: 0.12.2-2
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 168
+Depends: libbsd (= 0.12.2-2)
+Filename: pool/main/7552f76805cee5729a6a4c7cda1bc9e39dc391222aa3aedec3adf107c59cbdc8.deb
+Size: 30680
+MD5sum: b8de4890c852fed39a4f8948fcffa610
+SHA1: 62641847b27368e5b1526adc6004c19500f9bc77
+SHA256: 7552f76805cee5729a6a4c7cda1bc9e39dc391222aa3aedec3adf107c59cbdc8
+Homepage: https://libbsd.freedesktop.org
+Description: Static libraries for libbsd
+
 Package: libbz2
 Version: 1.0.8-8
 Architecture: aarch64
@@ -1000,6 +1131,22 @@ SHA256: ffb794d88fc369f6ad87dda2c1425c62d27a2c8fbc806fd7363dec11c916d592
 Homepage: https://libcxx.llvm.org/
 Description: C++ Standard Library
 
+Package: libcap
+Version: 2.69-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 536
+Depends: attr
+Breaks: libcap-dev
+Replaces: libcap-dev
+Filename: pool/main/ecaf8940ec68946db9713c181791a95aad63626c28c830f94a2e4cef297a5450.deb
+Size: 74140
+MD5sum: ada7808482b7505fba25c2236e6be2e6
+SHA1: a0e3e54938a6ec529e1d03c1f88fc7147928d452
+SHA256: ecaf8940ec68946db9713c181791a95aad63626c28c830f94a2e4cef297a5450
+Homepage: https://sites.google.com/site/fullycapable/
+Description: POSIX 1003.1e capabilities
+
 Package: libcap-ng
 Version: 2:0.9.3
 Architecture: aarch64
@@ -1026,6 +1173,20 @@ SHA1: 61af1f22a2c9982f15b88b8935e6eaed0972bef7
 SHA256: c5ad43d808ded59c58539fdb16557a36b75484f92f6270caf6c72ceb090850b7
 Homepage: https://people.redhat.com/sgrubb/libcap-ng/
 Description: Static libraries for libcap-ng
+
+Package: libcap-static
+Version: 2.69-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 88
+Depends: libcap (= 2.69-1)
+Filename: pool/main/4714ee5b5df87c3be4f17ee4e0e263e1c5fd1f8ff664ee2766ff0f700f22cd8b.deb
+Size: 14972
+MD5sum: 588cbdb6c8b3d2b5c2ecc2e261ce8ac6
+SHA1: 82dfca18c2f4b389675e7ec7d204923037f627fc
+SHA256: 4714ee5b5df87c3be4f17ee4e0e263e1c5fd1f8ff664ee2766ff0f700f22cd8b
+Homepage: https://sites.google.com/site/fullycapable/
+Description: Static libraries for libcap
 
 Package: libcrypt
 Version: 0.2-6
@@ -2012,6 +2173,33 @@ SHA256: 8109a6a69b47e23addcfcfd46ebf0c80d710fbf629c91e4471f3e903c5eab62e
 Homepage: https://www.gnu.org/software/libunistring/
 Description: Static libraries for libunistring
 
+Package: liburcu
+Version: 0.15.6
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 1420
+Filename: pool/main/2eeb40f5a3fb2c8a94b32244b786377ecbd9db08a260a2630be23ea723bca5ec.deb
+Size: 121092
+MD5sum: de4f7f8414c9facdeb7f41f191858a0d
+SHA1: 68fdde153df3e19a143554fab5a21711e805e9da
+SHA256: 2eeb40f5a3fb2c8a94b32244b786377ecbd9db08a260a2630be23ea723bca5ec
+Homepage: https://liburcu.org/
+Description: LGPLv2.1 userspace RCU (read-copy-update) library
+
+Package: liburcu-static
+Version: 0.15.6
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 436
+Depends: liburcu (= 0.15.6)
+Filename: pool/main/40453df3d7cec650271fc6faa03f320e2c74b7f4eba613dc482ce939792d06bc.deb
+Size: 45028
+MD5sum: dccbb5bbcbe3aed20b12620f7a155265
+SHA1: 30cb27e0dfdeea40b99e3c32d1653ccbc2eeaa48
+SHA256: 40453df3d7cec650271fc6faa03f320e2c74b7f4eba613dc482ce939792d06bc
+Homepage: https://liburcu.org/
+Description: Static libraries for liburcu
+
 Package: libusb
 Version: 1.0.30
 Architecture: aarch64
@@ -2056,6 +2244,35 @@ SHA1: 6d2fedda427f1ccf709f5259649394cf786c40d6
 SHA256: bfd4e2218aa1ea9a44eb337327aa3e20c2fe31f2199340a416baa1b1b3cb7a81
 Homepage: https://en.wikipedia.org/wiki/Util-linux
 Description: Library for handling universally unique identifiers
+
+Package: libuv
+Version: 1.52.1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 352
+Breaks: libuv-dev
+Replaces: libuv-dev
+Filename: pool/main/8eb546442ba4c31a07cd6395ff2b3b313ff2300346f87eb810f8ceb513413426.deb
+Size: 82180
+MD5sum: 492e45101ed3200e7aa66a714123d5e2
+SHA1: 3b7b9e3f77cdba33aced4aaecf0937f336a72cb6
+SHA256: 8eb546442ba4c31a07cd6395ff2b3b313ff2300346f87eb810f8ceb513413426
+Homepage: https://libuv.org
+Description: Support library with a focus on asynchronous I/O
+
+Package: libuv-static
+Version: 1.52.1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 1580
+Depends: libuv (= 1.52.1)
+Filename: pool/main/6f0673b6d6276115cda470579485a52b0a450abbefd64b5d9971346d67d4968b.deb
+Size: 288148
+MD5sum: 5d6926c268b44eae670cf1a4b04e01fe
+SHA1: 6694d72e7aafc24d369fc622662711b831caf004
+SHA256: 6f0673b6d6276115cda470579485a52b0a450abbefd64b5d9971346d67d4968b
+Homepage: https://libuv.org
+Description: Static libraries for libuv
 
 Package: libx11
 Version: 1.8.13
@@ -2471,6 +2688,21 @@ SHA1: 388770a2152d5e29db6608f18aa36f4897d3adc6
 SHA256: 193858545283e6b463f28a421bc2f40677eedbb0a2f8bc817ca1412f8f334d49
 Homepage: http://net-tools.sourceforge.net/
 Description: Configuration tools for Linux networking
+
+Package: netcat-openbsd
+Version: 1.238-1-0
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 92
+Depends: libbsd
+Provides: nc, ncat, netcat
+Filename: pool/main/4adc3fdb72669b2d071b5c2e3196808cc5fb3affba0d47c9c17a79a8053e23ef.deb
+Size: 20892
+MD5sum: e5c25f1931e0da31a271a6e8f63e112e
+SHA1: cbbc388b9da73d061ff00148514de11c9821213b
+SHA256: 4adc3fdb72669b2d071b5c2e3196808cc5fb3affba0d47c9c17a79a8053e23ef
+Homepage: https://packages.debian.org/sid/netcat-openbsd
+Description: TCP/IP swiss army knife. OpenBSD variant.
 
 Package: nettle
 Version: 4.0+really3.10.2
