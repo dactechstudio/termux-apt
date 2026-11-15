@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify and vendor the pinned CLI tools package source closure for CI."""
+"""Verify and vendor the pinned CLI and network tools package source closure for CI."""
 
 from __future__ import annotations
 
@@ -24,11 +24,32 @@ class Source:
 
 SOURCES = (
     Source(
+        "apr-util",
+        "apr-util-1.6.3.tar.gz",
+        "https://archive.apache.org/dist/apr/apr-util-1.6.3.tar.gz",
+        "2b74d8932703826862ca305b094eef2983c27b39d5c9414442e9976a9acf1983",
+        "https://downloads.apache.org/apr/apr-util-${TERMUX_PKG_VERSION}.tar.gz",
+    ),
+    Source(
+        "dnsutils",
+        "bind-9.20.24.tar.xz",
+        "https://downloads.isc.org/isc/bind9/9.20.24/bind-9.20.24.tar.xz",
+        "989fef1fc88ea59d04cd86f854dca5a4616a20a9968bcdde3c1a3668ab36be08",
+        '"https://downloads.isc.org/isc/bind9/${TERMUX_PKG_VERSION}/bind-${TERMUX_PKG_VERSION}.tar.xz"',
+    ),
+    Source(
         "nodejs-lts",
         "node-v24.17.0.tar.xz",
         "https://nodejs.org/dist/v24.17.0/node-v24.17.0.tar.xz",
         "a7ab562ed2369a29c68b72fa00e3103bcdfe37063dff799c6acc8e404e275fcd",
         "https://nodejs.org/dist/v${TERMUX_PKG_VERSION}/node-v${TERMUX_PKG_VERSION}.tar.xz",
+    ),
+    Source(
+        "netcat-openbsd",
+        "netcat-openbsd-debian-1.238-1.tar.gz",
+        "https://salsa.debian.org/debian/netcat-openbsd/-/archive/debian/1.238-1/netcat-openbsd-debian-1.238-1.tar.gz",
+        "ca2fed5e3e0e9841af812bd7ad2ed9e094f5c4cb72817e91323c75e14858af4a",
+        '"https://salsa.debian.org/debian/netcat-openbsd/-/archive/debian/${TERMUX_PKG_VERSION}/netcat-openbsd-debian-${TERMUX_PKG_VERSION}.tar.gz"',
     ),
 )
 
@@ -117,6 +138,18 @@ def patch_nodejs_lts(packages: Path) -> None:
     recipe.write_text(contents, encoding="utf-8")
 
 
+def patch_foot_checksum(packages: Path) -> None:
+    recipe = packages / "x11-packages" / "foot" / "build.sh"
+    contents = recipe.read_text(encoding="utf-8")
+    old_sha = "4e6131cc859ec6a36569f1978cf3617cc3836a681d13d228ded1b4885dab7770"
+    new_sha = "f5917cad2d7b723b99873e53d78fd10ea202923d189aed5086591fc53b70b7e3"
+    if old_sha in contents:
+        contents = contents.replace(old_sha, new_sha, 1)
+    elif new_sha not in contents:
+        raise ValueError(f"Unexpected source checksum in {recipe}")
+    recipe.write_text(contents, encoding="utf-8")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("packages", type=Path, help="Pinned termux-packages checkout")
@@ -130,6 +163,7 @@ def main() -> None:
         patch_recipe(packages, source, source_dir.name)
         print(f"{source.package}: {source.sha256} {destination.name}")
     patch_nodejs_lts(packages)
+    patch_foot_checksum(packages)
 
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ env:
 jobs:
   build-and-publish:
     runs-on: ubuntu-24.04
-    timeout-minutes: 180
+    timeout-minutes: 300
     steps:
       - name: Check out termux-apt repository
         uses: actions/checkout@v4
@@ -85,15 +85,15 @@ jobs:
           done
           df -h "$GITHUB_WORKSPACE"
 
-      - name: Build nodejs-lts with bundled npm/npx for ARM64
+      - name: Build nodejs-lts, DNS utilities and netcat-openbsd for ARM64
         working-directory: termux-packages
         run: |
           set +e
-          ./scripts/run-docker.sh ./build-package.sh -a aarch64 nodejs-lts > cli-tools-build.log 2>&1 &
+          ./scripts/run-docker.sh ./build-package.sh -a aarch64 nodejs-lts dnsutils netcat-openbsd > cli-tools-build.log 2>&1 &
           build_pid=$!
           while kill -0 "$build_pid" 2>/dev/null; do
             sleep 60
-            printf 'nodejs-lts build still running at %s UTC; log size: %s bytes\n' "$(date -u +%H:%M:%S)" "$(wc -c < cli-tools-build.log)"
+            printf 'CLI/network package build still running at %s UTC; log size: %s bytes\n' "$(date -u +%H:%M:%S)" "$(wc -c < cli-tools-build.log)"
             df -h . | tail -n 1
             tail -n 3 cli-tools-build.log || true
           done
@@ -102,7 +102,7 @@ jobs:
           tail -n 120 cli-tools-build.log
           exit "$result"
 
-      - name: Verify custom prefix closure
+      - name: Verify DNS/netcat packages and custom-prefix closure
         run: |
           python3 apt-repo/.github/scripts/verify-custom-cli-tools-packages.py termux-packages/output
 

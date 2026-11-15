@@ -13,6 +13,7 @@ OLD_PREFIX = b"/data/data/com.termux/files"
 NEW_PREFIX = b"/data/data/com.dactechstudio.termux/files"
 REQUIRED = {
     "c-ares",
+    "dnsutils",
     "git",
     "golang",
     "golang-doc",
@@ -28,6 +29,7 @@ REQUIRED = {
     "lz4",
     "nmap",
     "nodejs-lts",
+    "netcat-openbsd",
     "oniguruma",
     "pzstd",
     "rsync",
@@ -41,6 +43,7 @@ REQUIRED = {
     "zstd",
 }
 REQUIRED_BINARIES = {
+    "dnsutils": ("bin/dig", "bin/nslookup"),
     "git": "bin/git",
     "golang": "bin/go",
     "htop": "bin/htop",
@@ -49,6 +52,7 @@ REQUIRED_BINARIES = {
     "lz4": "bin/lz4",
     "nmap": "bin/nmap",
     "nodejs-lts": "bin/node",
+    "netcat-openbsd": "bin/netcat-openbsd",
     "pzstd": "bin/pzstd",
     "rsync": "bin/rsync",
     "termux-api": "libexec/termux-api",
@@ -105,8 +109,10 @@ def main() -> None:
                         f"Stock com.termux package reference remains in {name}:{candidate.relative_to(destination)}"
                     )
                 saw_new_prefix = saw_new_prefix or NEW_PREFIX in data
-            expected_bin = REQUIRED_BINARIES.get(name)
-            if expected_bin is not None:
+            expected_bins = REQUIRED_BINARIES.get(name, ())
+            if isinstance(expected_bins, str):
+                expected_bins = (expected_bins,)
+            for expected_bin in expected_bins:
                 binary = (
                     destination
                     / "data"
