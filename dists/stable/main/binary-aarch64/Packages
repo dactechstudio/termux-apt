@@ -352,6 +352,22 @@ SHA256: b0dbf30fe73e91acdd84303d08683b12cece17fd8d7b42b960bd76d4b691cb1f
 Homepage: https://packages.debian.org/dpkg
 Description: Creates Packages index files
 
+Package: dropbear
+Version: 2026.91
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 456
+Depends: termux-auth, zlib
+Suggests: openssh-sftp-server, termux-services
+Conflicts: openssh
+Filename: pool/main/488eec027fb2e4c8421afc24528c936c11ac1a5ceb7a7f709bb153328a2c0b01.deb
+Size: 143216
+MD5sum: be91a735b5d4bc6153bd05d7e35c139b
+SHA1: 8fa924b9e723cb7265cfe5f1282db431218ca961
+SHA256: 488eec027fb2e4c8421afc24528c936c11ac1a5ceb7a7f709bb153328a2c0b01
+Homepage: https://matt.ucc.asn.au/dropbear/dropbear.html
+Description: Small SSH server and client
+
 Package: ed
 Version: 1.22.5
 Architecture: aarch64
@@ -663,6 +679,36 @@ SHA1: c2dc6bd385effb7ba252ca213014e3e3be036af2
 SHA256: a4ed07d5f8ae00d710020acc0d7361d95ecc998487085657bbc90f4af50798f8
 Homepage: https://www.gnu.org/software/inetutils/
 Description: Collection of common network programs
+
+Package: jq
+Version: 1.8.2
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 512
+Depends: oniguruma
+Breaks: jq-dev
+Replaces: jq-dev
+Filename: pool/main/3fd167f4e6c1ef991414df712a6758be18ab50424aad031af206db70aa611d7b.deb
+Size: 183452
+MD5sum: eb924f89e6596b0ce6775b43e8d6e40c
+SHA1: e22999296295ab4ff04ce630e880e1f54af949ad
+SHA256: 3fd167f4e6c1ef991414df712a6758be18ab50424aad031af206db70aa611d7b
+Homepage: https://jqlang.org/
+Description: Command-line JSON processor
+
+Package: jq-static
+Version: 1.8.2
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 628
+Depends: jq (= 1.8.2)
+Filename: pool/main/63d793dc7c35d5831cf067767db9bda950502d351e92884a43438138098c7bb6.deb
+Size: 141748
+MD5sum: af405d095835071a10ceca4c5337d974
+SHA1: 9464a924b0b6196d5e2a9492d73264b7f7e90073
+SHA256: 63d793dc7c35d5831cf067767db9bda950502d351e92884a43438138098c7bb6
+Homepage: https://jqlang.org/
+Description: Static libraries for jq
 
 Package: krb5
 Version: 1.22.2
@@ -1383,6 +1429,21 @@ SHA256: c55cd881ee68781208d4045b6d1de448747c4e8c2ad03e5abb4dd8d6b653bef0
 Homepage: https://gnupg.org/related_software/libksba/
 Description: Static libraries for libksba
 
+Package: liblz4
+Version: 1.10.0-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 340
+Breaks: liblz4-dev
+Replaces: liblz4-dev
+Filename: pool/main/f9385f560a3b71cee3059cb16b06feb9dda69cc700cd5bdd0f32bcaa91c86919.deb
+Size: 86408
+MD5sum: 970c5eb4cd8595cc0366271e25798433
+SHA1: affe18dae2ca154218096faf082ffb4ace702b59
+SHA256: f9385f560a3b71cee3059cb16b06feb9dda69cc700cd5bdd0f32bcaa91c86919
+Homepage: https://lz4.github.io/lz4/
+Description: Fast LZ compression algorithm library
+
 Package: liblzma
 Version: 5.8.3
 Architecture: aarch64
@@ -1625,6 +1686,35 @@ SHA256: 779455500a988187fd7d79b36a5f8982b2fa1706e1473c22b13d082186991d84
 Homepage: https://www.gnupg.org/related_software/npth/
 Description: Static libraries for libnpth
 
+Package: libpcap
+Version: 1.10.5-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 768
+Breaks: libpcap-dev
+Replaces: libpcap-dev
+Filename: pool/main/8fc1f24eab90b08d87a9ff3c93b299b6ffc68ff03d21b15e9392a28addac6d11.deb
+Size: 227560
+MD5sum: d3affd61f3b3798fdc648a3c248072b4
+SHA1: a4d92817f0668531c6ba2a7ccb05be330e6df931
+SHA256: 8fc1f24eab90b08d87a9ff3c93b299b6ffc68ff03d21b15e9392a28addac6d11
+Homepage: https://www.tcpdump.org
+Description: Library for network traffic capture
+
+Package: libpcap-static
+Version: 1.10.5-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 416
+Depends: libpcap (= 1.10.5-1)
+Filename: pool/main/949b2dd9fb3f1e54554e856b3263f13a0f37ad852e9edd2898d1652a20a84a13.deb
+Size: 101536
+MD5sum: 1d499e30eee824c75768620801406e19
+SHA1: c7d49b19f341783cf8d01856453bb6d266ec8d8a
+SHA256: 949b2dd9fb3f1e54554e856b3263f13a0f37ad852e9edd2898d1652a20a84a13
+Homepage: https://www.tcpdump.org
+Description: Static libraries for libpcap
+
 Package: libpng
 Version: 1.6.58
 Architecture: aarch64
@@ -1654,6 +1744,35 @@ SHA1: 39081417e655577eba46520f47bc10988530f6c4
 SHA256: 838eeca659aa19ea52e597c2f6cba7d6bd37fe4e5e021ec8e68a5917d6ea284a
 Homepage: http://www.libpng.org/pub/png/libpng.html
 Description: Static libraries for libpng
+
+Package: libpopt
+Version: 1.19-3
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 136
+Breaks: libpopt-dev
+Replaces: libpopt-dev
+Filename: pool/main/7558f7f97dc5bff9b0ea02689c0a76cb8778e5bb7a325404d1909ac5258fc07a.deb
+Size: 33572
+MD5sum: 69bf38b57b6feeb7841c83979ec1caed
+SHA1: 4c6cf00fcef40a9a48a5e396a09df76c171d4022
+SHA256: 7558f7f97dc5bff9b0ea02689c0a76cb8778e5bb7a325404d1909ac5258fc07a
+Homepage: https://www.linuxfromscratch.org/blfs/view/svn/general/popt.html
+Description: Library for parsing cmdline parameters
+
+Package: libpopt-static
+Version: 1.19-3
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 88
+Depends: libpopt (= 1.19-3)
+Filename: pool/main/0937fa628d4201b8f401e080e7c90df5828534b8d22e34b17c2e3c798e72ab2a.deb
+Size: 18284
+MD5sum: 053fcc3a18811c874577f64a42c680a9
+SHA1: d04f02f5d784731b55ff081af944866dcc27b1d3
+SHA256: 0937fa628d4201b8f401e080e7c90df5828534b8d22e34b17c2e3c798e72ab2a
+Homepage: https://www.linuxfromscratch.org/blfs/view/svn/general/popt.html
+Description: Static libraries for libpopt
 
 Package: libresolv-wrapper
 Version: 1.1.7-6
@@ -2150,6 +2269,49 @@ SHA256: a4232b01c00b459d96954de073187440df87bc82d16ea5c079a25b23a078f536
 Homepage: https://xorg.freedesktop.org/
 Description: Static libraries for libxss
 
+Package: lua54
+Version: 5.4.8-6
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 744
+Breaks: liblua-dev, liblua54
+Replaces: liblua-dev, liblua54
+Filename: pool/main/c298ed5d8af5611989d3b0d7d5e5cd9287e1fe3f0632b0ad0330e986e265e52b.deb
+Size: 137648
+MD5sum: bde15db50913af17e226761252aabd8e
+SHA1: b578198d699254391e8ba0f231bf1a04b6100648
+SHA256: c298ed5d8af5611989d3b0d7d5e5cd9287e1fe3f0632b0ad0330e986e265e52b
+Homepage: https://www.lua.org/
+Description: Shared library for the Lua interpreter (v5.4.x)
+
+Package: lua54-static
+Version: 5.4.8-6
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 488
+Depends: lua54 (= 5.4.8-6)
+Filename: pool/main/bdd2db8d40fb77d7386a1541e7c88bc14dfd44a38600c24e17294d57cc9804f7.deb
+Size: 108116
+MD5sum: 0c8845bfde66e95a9c10851b1210ceb3
+SHA1: f9a2d10c040f47c3c9659bfd0d9e02aa22535e56
+SHA256: bdd2db8d40fb77d7386a1541e7c88bc14dfd44a38600c24e17294d57cc9804f7
+Homepage: https://www.lua.org/
+Description: Static libraries for lua54
+
+Package: lz4
+Version: 1.10.0-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 276
+Depends: liblz4 (= 1.10.0-1)
+Filename: pool/main/d194ad15903ce76a6cd8ebbf152ab8f4c391bc7a3d2429e8dac68dd4fd32d518.deb
+Size: 92164
+MD5sum: 36d86b6a5083268cff64034929afb904
+SHA1: 2a9e209f1a2fa7c56a2cc924f73b27a383788718
+SHA256: d194ad15903ce76a6cd8ebbf152ab8f4c391bc7a3d2429e8dac68dd4fd32d518
+Homepage: https://lz4.github.io/lz4/
+Description: Fast LZ compression algorithm tool
+
 Package: mount-utils
 Version: 2.42.1
 Architecture: aarch64
@@ -2278,6 +2440,50 @@ SHA1: 20f613bd9f375afde472843ca791ccb7e1ca6a2a
 SHA256: fd0dd87b4fda4259c62041897f93080e05d78b69106a213bbd12392d1f872010
 Homepage: https://www.lysator.liu.se/~nisse/nettle/
 Description: Low level cryptographic tools
+
+Package: nmap
+Version: 7.99
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 27612
+Depends: libc++, lua54, libpcap, libssh2, openssl, pcre2, resolv-conf, zlib
+Breaks: nmap-ncat
+Replaces: nmap-ncat
+Provides: nc, ncat, netcat
+Filename: pool/main/89e5504828bf439e998e9f4ba9c213da65c19d0a3d8df0035c144eee697e106b.deb
+Size: 5143668
+MD5sum: 464a7ce890c401d17bd88e0d971b188d
+SHA1: 2e76029a6e9f00690651aa6c939db4bf14c383ae
+SHA256: 89e5504828bf439e998e9f4ba9c213da65c19d0a3d8df0035c144eee697e106b
+Homepage: https://nmap.org/
+Description: Utility for network discovery and security auditing
+
+Package: oniguruma
+Version: 6.9.10-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 664
+Filename: pool/main/4015b51ccb59be8eafed1fb49e7f64fde4d8f4e06e20a60fb407e7377543cbe6.deb
+Size: 135000
+MD5sum: 88b532f7c92e01968c68f196ce17dd11
+SHA1: 1f849dd3ee29fac0b20bca063c808b9b5d998839
+SHA256: 4015b51ccb59be8eafed1fb49e7f64fde4d8f4e06e20a60fb407e7377543cbe6
+Homepage: https://github.com/kkos/oniguruma
+Description: Regular expressions library
+
+Package: oniguruma-static
+Version: 6.9.10-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 816
+Depends: oniguruma (= 6.9.10-1)
+Filename: pool/main/356d75d1fccccebbba7e5c5331a12ded6d0782edb3a8eed7f94325fdddc3613e.deb
+Size: 143244
+MD5sum: 5f1e8a10a11b561d571b718a4e3a9fc3
+SHA1: 2db7ac23220178e134373730aa2b112a8eba5210
+SHA256: 356d75d1fccccebbba7e5c5331a12ded6d0782edb3a8eed7f94325fdddc3613e
+Homepage: https://github.com/kkos/oniguruma
+Description: Static libraries for oniguruma
 
 Package: openssh
 Version: 10.3p1-1
@@ -2578,6 +2784,20 @@ SHA256: 9ea669c346952d62a77e25fc9ba46345d9b939a35892152c2c4e501b0309a020
 Homepage: https://unbound.net/
 Description: Python bindings for Unbound
 
+Package: pzstd
+Version: 1.5.7-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 152
+Depends: libc++, zstd (= 1.5.7-1)
+Filename: pool/main/02ca9d5c33a7ac1263b752585028028ea4b92680633e8aa31365a944eb135ab7.deb
+Size: 41844
+MD5sum: bf8e52c521572074ed91cbe8bca8d37a
+SHA1: 6cf6777b54e01b3bfbd283d4470160fb7b9f4c1f
+SHA256: 02ca9d5c33a7ac1263b752585028028ea4b92680633e8aa31365a944eb135ab7
+Homepage: https://github.com/facebook/zstd
+Description: A Pigz-like tool for Zstandard
+
 Package: readline
 Version: 8.3.3
 Architecture: aarch64
@@ -2620,6 +2840,20 @@ SHA1: 0caf66714e5545309791b0526d27eb29ad40085f
 SHA256: 720156123bdf4062f8732b78b77cd15a2f255dd064e320868b928622f1fcbfc7
 Homepage: https://man7.org/linux/man-pages/man5/resolv.conf.5.html
 Description: Resolver configuration file
+
+Package: rsync
+Version: 3.4.4
+Architecture: aarch64
+Maintainer: Joshua Kahn <tom@termux.dev>
+Installed-Size: 584
+Depends: libiconv, liblz4, libpopt, openssh | dropbear, openssl, openssl-tool, xxhash, zlib, zstd
+Filename: pool/main/6c64150d037543a365dd1546b0d471c78111605372dd74f296c8fd32a442387c.deb
+Size: 277572
+MD5sum: dca42dc710b846753d0aa3322b9c049d
+SHA1: 79d9b200ecf545c15b03eab90e103167de153cdc
+SHA256: 6c64150d037543a365dd1546b0d471c78111605372dd74f296c8fd32a442387c
+Homepage: https://rsync.samba.org/
+Description: Fast incremental file transfer utility
 
 Package: scdaemon
 Version: 2.5.17
@@ -2723,6 +2957,34 @@ SHA1: 27662e2741444cd1dbbc712dae3c2c8e38e01d29
 SHA256: 8f04d240d09f3c9758e96d5ae8338f046e536511fdd1b8136e5c1efd4868c1fd
 Homepage: https://github.com/termux/TermuxAm
 Description: Android Oreo-compatible am command reimplementation
+
+Package: termux-api
+Version: 0.59.1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 356
+Depends: bash, util-linux, termux-am (>= 0.8.0)
+Filename: pool/main/324118be77b15eb225c2e08b9b435dddb58b673434c6633539fb17ee9bd17345.deb
+Size: 27340
+MD5sum: 8aef195cc1d0311790d6415daf8cf2de
+SHA1: 6ffcdd12020262323c3653156d40a358087416b0
+SHA256: 324118be77b15eb225c2e08b9b435dddb58b673434c6633539fb17ee9bd17345
+Homepage: https://wiki.termux.com/wiki/Termux:API
+Description: Termux API commands (install also the Termux:API app)
+
+Package: termux-api-static
+Version: 0.59.1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 40
+Depends: termux-api (= 0.59.1)
+Filename: pool/main/8a26a782e0906aec3e7fad346a20038fcc1e45c12a73f68093114ccca1fba356.deb
+Size: 3872
+MD5sum: 138ea4946ac45812c4d57e9a6e6fbc83
+SHA1: 627e3f8040248ef9260a9cafe5eeb0c4fdc48bf0
+SHA256: 8a26a782e0906aec3e7fad346a20038fcc1e45c12a73f68093114ccca1fba356
+Homepage: https://wiki.termux.com/wiki/Termux:API
+Description: Static libraries for termux-api
 
 Package: termux-auth
 Version: 1.5.0-1
@@ -2840,6 +3102,19 @@ SHA1: 71126e8e20a347b2f6339373613c4ccbb79a9822
 SHA256: f4ba41ca65efff1b464659490a270a84e8cccb1909e4ff9d382840f3611b98a2
 Homepage: https://www.torproject.org
 Description: The Onion Router anonymizing overlay network
+
+Package: tree
+Version: 2.3.2
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 132
+Filename: pool/main/a690e9e21cd6134b4e7f1d19cb7623141ab5c4dab30c5fa7fa839bd6aa379590.deb
+Size: 35432
+MD5sum: 27ef745efe78494cbb67c4ef8319b6fa
+SHA1: 24d49157dcf361f2faa8d4eca15472c7986afc55
+SHA256: a690e9e21cd6134b4e7f1d19cb7623141ab5c4dab30c5fa7fa839bd6aa379590
+Homepage: http://mama.indstate.edu/users/ice/tree/
+Description: Recursive directory lister producing a depth indented listing of files
 
 Package: ttf-dejavu
 Version: 2.37-8
@@ -3086,6 +3361,20 @@ SHA256: df789ccdd27efbb7c4a27c2b5d0072776e6f3ce594bfd9d34339c806dfa74c6a
 Homepage: https://tukaani.org/xz/
 Description: XZ-format compression tools
 
+Package: zip
+Version: 3.0-7
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 524
+Depends: libbz2
+Filename: pool/main/e15c0573160b0ebf9019e11d768e4139c68b047fe6b8aa33b456ade7cb03e22b.deb
+Size: 141072
+MD5sum: fb268cdded9515e06db60f4ce5935ef7
+SHA1: a5d71bbdfee54ce5895f5fe791e008545e611e09
+SHA256: e15c0573160b0ebf9019e11d768e4139c68b047fe6b8aa33b456ade7cb03e22b
+Homepage: https://sourceforge.net/projects/infozip/
+Description: Tools for working with zip files
+
 Package: zlib
 Version: 1.3.2
 Architecture: aarch64
@@ -3114,4 +3403,20 @@ SHA1: c282c3ecf74735021b583604be3a7020fa44ad4f
 SHA256: f3e1f2f3aa1d9035c5a43080f74d1b6c3ce4f48d89ee646971edd447d82d0173
 Homepage: https://www.zlib.net/
 Description: Static libraries for zlib
+
+Package: zstd
+Version: 1.5.7-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 1300
+Depends: liblzma, zlib
+Breaks: zstd-dev
+Replaces: zstd-dev
+Filename: pool/main/3c15d38fac75a1217ab075ef29a531aca0ee6ec0f40fcb06b9802c286fb7597f.deb
+Size: 359284
+MD5sum: 7fad6e9caf6f52abce3be082df117a1c
+SHA1: 53a4311a84ec71e6bec04a8e2437a0cdac0fc9f9
+SHA256: 3c15d38fac75a1217ab075ef29a531aca0ee6ec0f40fcb06b9802c286fb7597f
+Homepage: https://github.com/facebook/zstd
+Description: Zstandard compression
 
