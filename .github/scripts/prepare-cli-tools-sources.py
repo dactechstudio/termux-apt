@@ -24,88 +24,25 @@ class Source:
 
 SOURCES = (
     Source(
-        "termux-api",
-        "termux-api-0.59.1.tar.gz",
-        "https://github.com/termux/termux-api-package/archive/v0.59.1.tar.gz",
-        "92c2da07991a0191735539428aabb793e0ddb8e33baac305bcf38d77aa1eda80",
-        "https://github.com/termux/termux-api-package/archive/v${TERMUX_PKG_VERSION}.tar.gz",
+        "c-ares",
+        "c-ares-1.34.6.tar.gz",
+        "https://github.com/c-ares/c-ares/archive/refs/tags/v1.34.6.tar.gz",
+        "4358939ff800b13b92f37d5fdda003718101faedfbdee792d6b79ddc1a53d890",
+        "https://github.com/c-ares/c-ares/archive/refs/tags/v$TERMUX_PKG_VERSION.tar.gz",
     ),
     Source(
-        "zip",
-        "zip30.tar.gz",
-        "https://downloads.sourceforge.net/infozip/zip30.tar.gz",
-        "f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369",
-        '"https://downloads.sourceforge.net/infozip/zip${TERMUX_PKG_VERSION/.}.tar.gz"',
+        "libicu",
+        "icu4c-78.3-sources.tgz",
+        "https://github.com/unicode-org/icu/releases/download/release-78.3/icu4c-78.3-sources.tgz",
+        "3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0",
+        "https://github.com/unicode-org/icu/releases/download/release-${TERMUX_PKG_VERSION}/icu4c-${TERMUX_PKG_VERSION}-sources.tgz",
     ),
     Source(
-        "oniguruma",
-        "onig-6.9.10.tar.gz",
-        "https://github.com/kkos/oniguruma/releases/download/v6.9.10/onig-6.9.10.tar.gz",
-        "2a5cfc5ae259e4e97f86b68dfffc152cdaffe94e2060b770cb827238d769fc05",
-        "https://github.com/kkos/oniguruma/releases/download/v$TERMUX_PKG_VERSION/onig-$TERMUX_PKG_VERSION.tar.gz",
-    ),
-    Source(
-        "jq",
-        "jq-1.8.2.tar.gz",
-        "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-1.8.2.tar.gz",
-        "71b8d6e8f5fe81f6c6d0d110e3892251f6ce76ed095abd315e26e6e1193af3af",
-        "https://github.com/jqlang/jq/releases/download/jq-$TERMUX_PKG_VERSION/jq-$TERMUX_PKG_VERSION.tar.gz",
-    ),
-    Source(
-        "tree",
-        "unix-tree-2.3.2.tar.gz",
-        "https://gitlab.com/OldManProgrammer/unix-tree/-/archive/2.3.2/unix-tree-2.3.2.tar.gz",
-        "513a53cbc42ca1f4ea06af2bab1f5283524a3848266b1d162416f8033afc4985",
-        '"https://gitlab.com/OldManProgrammer/unix-tree/-/archive/${TERMUX_PKG_VERSION}/unix-tree-${TERMUX_PKG_VERSION}.tar.gz"',
-    ),
-    Source(
-        "liblz4",
-        "lz4-1.10.0.tar.gz",
-        "https://github.com/lz4/lz4/archive/refs/tags/v1.10.0.tar.gz",
-        "537512904744b35e232912055ccf8ec66d768639ff3abe5788d90d792ec5f48b",
-        "https://github.com/lz4/lz4/archive/refs/tags/v${TERMUX_PKG_VERSION}.tar.gz",
-    ),
-    Source(
-        "libpopt",
-        "popt-1.19.tar.gz",
-        "http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.19.tar.gz",
-        "c25a4838fc8e4c1c8aacb8bd620edb3084a3d63bf8987fdad3ca2758c63240f9",
-        "http://ftp.rpm.org/popt/releases/popt-1.x/popt-${TERMUX_PKG_VERSION}.tar.gz",
-    ),
-    Source(
-        "zstd",
-        "zstd-1.5.7.tar.gz",
-        "https://github.com/facebook/zstd/archive/refs/tags/v1.5.7.tar.gz",
-        "37d7284556b20954e56e1ca85b80226768902e2edabd3b649e9e72c0c9012ee3",
-        "https://github.com/facebook/zstd/archive/refs/tags/v${TERMUX_PKG_VERSION}.tar.gz",
-    ),
-    Source(
-        "rsync",
-        "rsync-3.4.4.tar.gz",
-        "https://rsync.samba.org/ftp/rsync/src/rsync-3.4.4.tar.gz",
-        "bd88cf82fa653da32314fb229136407c5c90f80d1758d8f4b091767877d8fa96",
-        '"https://rsync.samba.org/ftp/rsync/src/rsync-${TERMUX_PKG_VERSION}.tar.gz"',
-    ),
-    Source(
-        "libpcap",
-        "libpcap-1.10.5.tar.xz",
-        "https://deb.debian.org/debian/pool/main/libp/libpcap/libpcap_1.10.5.orig.tar.xz",
-        "84fa89ac6d303028c1c5b754abff77224f45eca0a94eb1a34ff0aa9ceece3925",
-        "https://fossies.org/linux/misc/libpcap-${TERMUX_PKG_VERSION}.tar.xz",
-    ),
-    Source(
-        "lua54",
-        "lua-5.4.8.tar.gz",
-        "https://www.lua.org/ftp/lua-5.4.8.tar.gz",
-        "4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae",
-        "https://www.lua.org/ftp/lua-${TERMUX_PKG_VERSION}.tar.gz",
-    ),
-    Source(
-        "nmap",
-        "nmap-7.99.tar.bz2",
-        "https://nmap.org/dist/nmap-7.99.tar.bz2",
-        "df512492ffd108e53a27a06f26d8635bbe89e0e569455dc8ffef058c035d51b2",
-        "https://nmap.org/dist/nmap-${TERMUX_PKG_VERSION}.tar.bz2",
+        "golang",
+        "go1.26.4.src.tar.gz",
+        "https://go.dev/dl/go1.26.4.src.tar.gz",
+        "4f668a32fbfc1132e6a881fb968c2f1dada631492a339211735fbb255a42602d",
+        "https://go.dev/dl/go${TERMUX_PKG_VERSION#*:}.src.tar.gz",
     ),
 )
 
@@ -147,13 +84,6 @@ def download(source: Source, destination: Path) -> None:
 
 
 def audit_archive(source: Source, archive_path: Path) -> None:
-    if source.package == "termux-api":
-        return
-    if archive_path.suffix == ".lz":
-        data = archive_path.read_bytes()
-        if b"/data/data/com.termux/files" in data:
-            raise ValueError(f"Unexpected stock prefix in {source.package}")
-        return
     if archive_path.suffix == ".xz":
         mode = "r:xz"
     elif archive_path.suffix == ".bz2":
@@ -195,30 +125,43 @@ def patch_recipe(packages: Path, source: Source, source_dir_name: str) -> None:
     recipe.write_text(contents, encoding="utf-8")
 
 
-def patch_termux_api(packages: Path) -> None:
-    patch_file = packages / "packages" / "termux-api" / "termux-api.c.patch"
-    patch_contents = patch_file.read_text(encoding="utf-8")
-    patch_contents = patch_contents.replace(
-        '+    child_argv[5] = "com.termux/com.termux.app.TermuxService";',
-        '+    child_argv[5] = "com.dactechstudio.termux/com.dactechstudio.termux.app.TermuxService";',
-    )
-    patch_contents = patch_contents.replace(
-        '+    child_argv[13] = "com.termux.service_api";',
-        '+    child_argv[13] = "com.dactechstudio.termux.service_api";',
-    )
-    patch_file.write_text(patch_contents, encoding="utf-8")
-
-    recipe = packages / "packages" / "termux-api" / "build.sh"
+def patch_libicu_license(packages: Path) -> None:
+    recipe = packages / "packages" / "libicu" / "build.sh"
     contents = recipe.read_text(encoding="utf-8")
-    hook = """
-termux_step_pre_configure() {
-\tsed -i 's/com\\.termux\\.api/com.dactechstudio.termux.api/g; s/com\\.termux/com.dactechstudio.termux/g' \\
-\t\ttermux-api.c termux-api-broadcast.c scripts/termux-api-start.in scripts/termux-api-stop.in
-}
-"""
-    if "termux_step_pre_configure()" not in contents:
-        contents = contents.rstrip() + "\n" + hook
+    old = 'curl -L "https://raw.githubusercontent.com/unicode-org/icu/release-${TERMUX_PKG_VERSION//./-}/LICENSE" -o "$TERMUX_PKG_SRCDIR/LICENSE"'
+    new = 'curl -fL "https://raw.githubusercontent.com/unicode-org/icu/release-${TERMUX_PKG_VERSION}/LICENSE" -o "$TERMUX_PKG_SRCDIR/LICENSE"'
+    if old in contents:
+        contents = contents.replace(old, new, 1)
         recipe.write_text(contents, encoding="utf-8")
+    elif new not in contents:
+        raise ValueError(f"Unexpected LICENSE URL in {recipe}")
+
+
+def patch_golang(packages: Path) -> None:
+    setup_script = packages / "scripts" / "build" / "setup" / "termux_setup_golang.sh"
+    setup_contents = setup_script.read_text(encoding="utf-8")
+    old_check = """\t\t# Need to be on latest go version to avoid risk of newer go version in go.mod
+\t\t# leading to a prebuilt toolchain (which lacks the Termux patches):
+\t\t(curl 'https://go.dev/VERSION?m=text' | grep -q $TERMUX_GO_VERSION) || termux_error_exit "Not on latest go version. Using $TERMUX_GO_VERSION"\n"""
+    if old_check in setup_contents:
+        setup_contents = setup_contents.replace(old_check, "", 1)
+        setup_script.write_text(setup_contents, encoding="utf-8")
+
+    exec_patch = packages / "packages" / "golang" / "src-os-exec_posix.go.patch"
+    exec_contents = exec_patch.read_text(encoding="utf-8")
+    exec_contents = exec_contents.replace(
+        "/data/data/com.termux/files",
+        "/data/data/com.dactechstudio.termux/files",
+    )
+    exec_patch.write_text(exec_contents, encoding="utf-8")
+
+    recipe = packages / "packages" / "golang" / "build.sh"
+    recipe_contents = recipe.read_text(encoding="utf-8")
+    recipe_contents = recipe_contents.replace(
+        'TERMUX_PKG_DEPENDS="clang"\nTERMUX_PKG_ANTI_BUILD_DEPENDS="clang"\nTERMUX_PKG_RECOMMENDS="resolv-conf"',
+        'TERMUX_PKG_DEPENDS="resolv-conf"\nTERMUX_PKG_SUGGESTS="clang"',
+    )
+    recipe.write_text(recipe_contents, encoding="utf-8")
 
 
 def main() -> None:
@@ -234,7 +177,8 @@ def main() -> None:
         audit_archive(source, destination)
         patch_recipe(packages, source, source_dir.name)
         print(f"{source.package}: {source.sha256} {destination.name}")
-    patch_termux_api(packages)
+    patch_libicu_license(packages)
+    patch_golang(packages)
 
 
 if __name__ == "__main__":

@@ -61,7 +61,7 @@ jobs:
               dest = out / f'{pkg}_{ver}_{arch}.deb'
               shutil.copy2(deb, dest)
               count += 1
-          assert count >= 213, f'Expected at least 213 existing packages, found {count}'
+          assert count >= 234, f'Expected at least 234 existing packages, found {count}'
           print(f'Restored {count} existing custom-prefix .deb packages to {out}')
           EOF
 
@@ -85,11 +85,11 @@ jobs:
           done
           df -h "$GITHUB_WORKSPACE"
 
-      - name: Build Group 2 CLI tools and ARM64 dependencies
+      - name: Build c-ares, libicu, and golang for ARM64
         working-directory: termux-packages
         run: |
           set +e
-          ./scripts/run-docker.sh ./build-package.sh -a aarch64 termux-api zip oniguruma jq tree liblz4 libpopt zstd rsync libpcap lua54 nmap > cli-tools-build.log 2>&1 &
+          ./scripts/run-docker.sh ./build-package.sh -a aarch64 c-ares libicu golang > cli-tools-build.log 2>&1 &
           build_pid=$!
           while kill -0 "$build_pid" 2>/dev/null; do
             sleep 45
@@ -132,5 +132,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add pool dists
           git status -s
-          git commit -m "Publish custom-prefix termux-api, zip, jq, tree, rsync, nmap, lz4, zstd packages"
+          git commit -m "Publish custom-prefix c-ares, libicu, icu-devtools, golang, golang-doc packages"
           git push origin HEAD:main

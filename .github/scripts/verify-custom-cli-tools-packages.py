@@ -12,9 +12,14 @@ from pathlib import Path
 OLD_PREFIX = b"/data/data/com.termux/files"
 NEW_PREFIX = b"/data/data/com.dactechstudio.termux/files"
 REQUIRED = {
+    "c-ares",
     "git",
+    "golang",
+    "golang-doc",
     "htop",
+    "icu-devtools",
     "jq",
+    "libicu",
     "liblz4",
     "libpcap",
     "libpopt",
@@ -36,6 +41,7 @@ REQUIRED = {
 }
 REQUIRED_BINARIES = {
     "git": "bin/git",
+    "golang": "bin/go",
     "htop": "bin/htop",
     "jq": "bin/jq",
     "lua54": "bin/lua5.4",
