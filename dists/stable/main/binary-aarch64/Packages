@@ -2503,6 +2503,25 @@ SHA256: 89e5504828bf439e998e9f4ba9c213da65c19d0a3d8df0035c144eee697e106b
 Homepage: https://nmap.org/
 Description: Utility for network discovery and security auditing
 
+Package: nodejs-lts
+Version: 24.17.0
+Architecture: aarch64
+Maintainer: Yaksh Bariya <thunder-coding@termux.dev>
+Installed-Size: 62976
+Depends: libc++, openssl, c-ares, libicu, libsqlite, zlib
+Suggests: clang, make, pkg-config, python
+Conflicts: nodejs, nodejs-current
+Breaks: nodejs-dev
+Replaces: nodejs-current, nodejs-dev
+Provides: nodejs, npm
+Filename: pool/main/c57d69386cdc83a2170a4529af906875b4213499b10690e4a446d03224e83228.deb
+Size: 11459208
+MD5sum: c87636aa3926b87c61a416fd3965aa83
+SHA1: b79a57284d41fb99b16f6c453937af3637666cd8
+SHA256: c57d69386cdc83a2170a4529af906875b4213499b10690e4a446d03224e83228
+Homepage: https://nodejs.org/
+Description: Open Source, cross-platform JavaScript runtime environment
+
 Package: oniguruma
 Version: 6.9.10-1
 Architecture: aarch64
