@@ -27,6 +27,7 @@ REQUIRED = {
     "lua54",
     "lz4",
     "nmap",
+    "nodejs-lts",
     "oniguruma",
     "pzstd",
     "rsync",
@@ -47,6 +48,7 @@ REQUIRED_BINARIES = {
     "lua54": "bin/lua5.4",
     "lz4": "bin/lz4",
     "nmap": "bin/nmap",
+    "nodejs-lts": "bin/node",
     "pzstd": "bin/pzstd",
     "rsync": "bin/rsync",
     "termux-api": "libexec/termux-api",
@@ -118,6 +120,19 @@ def main() -> None:
                     raise ValueError(
                         f"The {name} package does not contain {expected_bin} at the custom prefix"
                     )
+            if name == "nodejs-lts":
+                npm_bin = (
+                    destination
+                    / "data"
+                    / "data"
+                    / "com.dactechstudio.termux"
+                    / "files"
+                    / "usr"
+                    / "bin"
+                    / "npm"
+                )
+                if not (npm_bin.is_file() or npm_bin.is_symlink()):
+                    raise ValueError("nodejs-lts does not contain bin/npm at the custom prefix")
     if not saw_new_prefix:
         raise ValueError("No custom application prefix found in the CLI tools package closure")
     print("Verified custom-prefix CLI tools package closure: " + ", ".join(sorted(found)))

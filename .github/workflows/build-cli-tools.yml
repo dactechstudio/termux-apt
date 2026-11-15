@@ -12,7 +12,7 @@ env:
 jobs:
   build-and-publish:
     runs-on: ubuntu-24.04
-    timeout-minutes: 120
+    timeout-minutes: 180
     steps:
       - name: Check out termux-apt repository
         uses: actions/checkout@v4
@@ -61,7 +61,7 @@ jobs:
               dest = out / f'{pkg}_{ver}_{arch}.deb'
               shutil.copy2(deb, dest)
               count += 1
-          assert count >= 234, f'Expected at least 234 existing packages, found {count}'
+          assert count >= 237, f'Expected at least 237 existing packages, found {count}'
           print(f'Restored {count} existing custom-prefix .deb packages to {out}')
           EOF
 
@@ -85,17 +85,17 @@ jobs:
           done
           df -h "$GITHUB_WORKSPACE"
 
-      - name: Build c-ares, libicu, and golang for ARM64
+      - name: Build nodejs-lts with bundled npm/npx for ARM64
         working-directory: termux-packages
         run: |
           set +e
-          ./scripts/run-docker.sh ./build-package.sh -a aarch64 c-ares libicu golang > cli-tools-build.log 2>&1 &
+          ./scripts/run-docker.sh ./build-package.sh -a aarch64 nodejs-lts > cli-tools-build.log 2>&1 &
           build_pid=$!
           while kill -0 "$build_pid" 2>/dev/null; do
-            sleep 45
-            printf 'CLI tools build still running at %s UTC; log size: %s bytes\n' "$(date -u +%H:%M:%S)" "$(wc -c < cli-tools-build.log)"
+            sleep 60
+            printf 'nodejs-lts build still running at %s UTC; log size: %s bytes\n' "$(date -u +%H:%M:%S)" "$(wc -c < cli-tools-build.log)"
             df -h . | tail -n 1
-            grep -E 'termux - building |termux - build of |Wrong checksum|ERROR:' cli-tools-build.log | tail -n 5 || true
+            tail -n 3 cli-tools-build.log || true
           done
           wait "$build_pid"
           result=$?
@@ -132,5 +132,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add pool dists
           git status -s
-          git commit -m "Publish custom-prefix c-ares, libicu, icu-devtools, golang, golang-doc packages"
+          git commit -m "Publish custom-prefix nodejs-lts (with bundled npm and npx) package"
           git push origin HEAD:main
